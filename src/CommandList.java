@@ -39,9 +39,9 @@ public class CommandList {
 
     public static void menu(){
         String[] items = {"Play", "Sound settings", "About", "Quit"};
-
-        //draw picture
-        //play audio
+        //Art.drawArt("menu");
+        //Storyline.drawStory("menu");
+        //playAudio
         Item.drawItems(items);
         Item.inputItems(items);
     }
