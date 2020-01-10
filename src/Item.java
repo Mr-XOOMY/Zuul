@@ -9,8 +9,8 @@ public class Item {
     }
 
     public static void inputItems(String[] items){
-        boolean run = true;
-        while (run){
+        //noinspection InfiniteLoopStatement
+        while (true){
 
             Scanner input = new Scanner(System.in);  // Create a Scanner object
             System.out.print("> ");
@@ -28,7 +28,6 @@ public class Item {
 
             if (command){
                 if (inputCommand.equals("quit")){
-                    run = false;
                     CommandList.inputCommand("quit");
                 }else {
                     CommandList.inputCommand(inputCommand);
