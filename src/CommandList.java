@@ -55,6 +55,11 @@ public class CommandList {
 
     public static void quit(){
         System.out.println("You've exited this program'");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.exit(0);
     }
 
