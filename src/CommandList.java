@@ -32,13 +32,13 @@ public class CommandList {
         }
     }
 
-    public static void invalid(String items[]){
+    public static void invalid(String[] items){
         System.out.println("You've typed an invalid command...");
         Item.drawItems(items);
     }
 
     public static void menu(){
-        String items[] = {"Play", "Sound settings", "About", "Quit"};
+        String[] items = {"Play", "Sound settings", "About", "Quit"};
 
         //draw picture
         //play audio
@@ -47,7 +47,7 @@ public class CommandList {
     }
 
     public static void play(){
-        String items[] = {"A", "B", "C", "D"};
+        String[] items = {"A", "B", "C", "D"};
         System.out.println("You've started a game!");
         Item.drawItems(items);
         Item.inputItems(items);
