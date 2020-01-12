@@ -38,6 +38,8 @@ public class Item {
             if (command) {
                 switch (locationId) {
                     case "menu":
+                        Music.music.getDevice().stop();
+                        Music.music.getDevice().close();
                         Menu.inputCommand(inputCommand);
                         break;
                     //case "game":
@@ -56,7 +58,7 @@ public class Item {
                         Quit.inputCommand(inputCommand);
                         break;
                 }
-            } else if (inputCommand.equals("menu")) {
+            } else if (inputCommand.equals("menu") && !location.getCurrentLocationId().equals("menu")) {
                 CommandList.inputCommand(inputCommand);
             }else {
                 CommandList.invalid(items);

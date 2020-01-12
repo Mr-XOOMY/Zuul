@@ -44,7 +44,8 @@ public class Menu {
                 System.lineSeparator() +
                 "Sometimes Linux wont chnage the audio output from the default output to another when switched and could be forced with this setting."+
                 System.lineSeparator() +
-                "Windows should not need this.");
+                "Windows should not need this."+System.lineSeparator());
+        System.out.println("The current used audio device is, "+(Audiosettings.device.deviceNumber+1)+") "+Audiosettings.device.info.getDescription());
         Item.drawItems(items);
         Item.inputItems(items, locationId);
     }
@@ -52,6 +53,7 @@ public class Menu {
     public static void music () {
         String[] items = {
                 "Sound Check",
+                "Theme Song",
                 "Misty Mountains",
                 "Back"
         };

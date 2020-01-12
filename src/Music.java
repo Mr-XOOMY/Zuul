@@ -26,6 +26,13 @@ public class Music {
                 System.out.println(nowPlaying);
                 Item.drawItems(items);
                 break;
+            case "themesong":
+                themeSong();
+                if (Item.location.getCurrentLocationId().equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.drawItems(items);
+                }
+                break;
             case "mistymountains":
                 mistyMountains();
                 if (Item.location.getCurrentLocationId().equals("music")) {
@@ -46,6 +53,14 @@ public class Music {
         music.getDevice().close();
         String songName = "Sound Check";
         String songLocation = "AudioFiles/soundcheck.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
+    public static void themeSong (){
+        music.getDevice().stop();
+        music.getDevice().close();
+        String songName = "Theme Song";
+        String songLocation = "AudioFiles/themesong.wav";
         nowPlaying = playMusic(songLocation, songName);
     }
 

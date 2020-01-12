@@ -1,3 +1,5 @@
+import javax.sound.sampled.Clip;
+
 public class CommandList {
 
     public static void inputCommand(String command){
@@ -25,6 +27,9 @@ public class CommandList {
                 "Quit"
         };
         String locationId = "menu";
+        Audiosettings.reset(0);
+        Music.themeSong();
+        Music.music.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
         //Art.drawArt("menu");
         //Storyline.drawStory("menu");
         Item.drawItems(items);

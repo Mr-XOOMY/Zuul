@@ -27,10 +27,18 @@ public class Audiosettings {
     public static void inputCommand(String command, String[] items){
         switch (command) {
             case "change":
-                change(items);
+                change();
+                if (Item.location.getCurrentLocationId().equals("soundsettings")) {
+                    System.out.println("The current used audio device is, "+(Audiosettings.device.deviceNumber+1)+") "+Audiosettings.device.info.getDescription());
+                }
+                Item.drawItems(items);
                 break;
             case "reset":
-                reset(items);
+                reset();
+                if (Item.location.getCurrentLocationId().equals("soundsettings")) {
+                    System.out.println("The current used audio device is, "+(Audiosettings.device.deviceNumber+1)+") "+Audiosettings.device.info.getDescription());
+                }
+                Item.drawItems(items);
                 break;
             case "back":
                 Music.music.getDevice().stop();
@@ -40,32 +48,33 @@ public class Audiosettings {
         }
     }
 
-    public static void change(String[] items){
+    public static void change(){
+        System.out.println("These are all the audio playback devices."+System.lineSeparator());
         device.setAudioDevice();
         Music.soundCheck();
         System.out.println("When you hear the test audio track, then your sound is setup correctly."+System.lineSeparator()+"" +
-                "When you don't hear the test audio track, please check if you have turned up your volume and please try the setup again or reset the changes to the default audio device.");
-        Item.drawItems(items);
+                "When you don't hear the test audio track, please check if you have turned up your volume and please try the setup again or reset the changes to the default audio device."+System.lineSeparator());
     }
 
-    public static void reset(String[] items){
+    public static void reset(){
         device.setAudioDevice(0);
         Music.soundCheck();
         System.out.println("When you hear the test audio track, then your sound is setup correctly."+System.lineSeparator()+"" +
-                "When you don't hear the test audio track, please check if you have turned up your volume and please try the setup again or reset the changes to the default audio device.");
-        Item.drawItems(items);
+                "When you don't hear the test audio track, please check if you have turned up your volume and please try the setup again or reset the changes to the default audio device."+System.lineSeparator());
+    }
+
+    public static void reset(int deviceNumber){
+        device.setAudioDevice(deviceNumber);
     }
 
     public void setAudioDevice(){
-        System.out.println("The current used audio device is, "+(deviceNumber+1)+") "+info.getDescription()+System.lineSeparator());
         deviceNumber = setDeviceNumber();
         info = audioDevice.get(deviceNumber);
-        System.out.println("You have chosen audio device, "+(deviceNumber+1)+") "+info.getDescription());
+        System.out.println("You have chosen audio device, "+(deviceNumber+1)+") "+info.getDescription()+System.lineSeparator());
     }
 
     public void setAudioDevice(int deviceNumber){
         info = audioDevice.get(deviceNumber);
-        System.out.println("The audio device has been reset to default, "+(deviceNumber+1)+") "+info.getDescription());
     }
 
     public int setDeviceNumber(){
@@ -82,7 +91,7 @@ public class Audiosettings {
 
         while (number < 1 || number > amount){
             Scanner input = new Scanner(System.in);  // Create a Scanner object
-            System.out.print("Enter audio device number: ");
+            System.out.print("> Enter audio device number: ");
 
             if (input.hasNextInt()){
                 number = input.nextInt();  // Read user input
