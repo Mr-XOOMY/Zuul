@@ -5,29 +5,8 @@ public class CommandList {
             case "menu":
                 menu();
                 break;
-            case "play":
-                play();
-                break;
-            case "quit":
-                quit();
-                break;
-            case "about":
-                about();
-                break;
-            case "soundsettings":
-                soundSettings();
-                break;
-            case "a":
-                a();
-                break;
-            case "b":
-                b();
-                break;
-            case "c":
-                c();
-                break;
-            case "d":
-                d();
+            case "back":
+                back();
                 break;
         }
     }
@@ -38,52 +17,26 @@ public class CommandList {
     }
 
     public static void menu(){
-        String[] items = {"Play", "Sound settings", "About", "Quit"};
+        String[] items = {
+                "Play",
+                "Sound settings",
+                "Music",
+                "About",
+                "Quit"
+        };
+        String locationId = "menu";
         //Art.drawArt("menu");
         //Storyline.drawStory("menu");
-        //playAudio
         Item.drawItems(items);
-        Item.inputItems(items);
+        Item.inputItems(items, locationId);
     }
 
-    public static void play(){
-        String[] items = {"A", "B", "C", "D"};
-        System.out.println("You've started a game!");
-        Item.drawItems(items);
-        Item.inputItems(items);
-    }
+    public static void back(){
 
-    public static void quit(){
-        System.out.println("You've exited this program'");
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        switch (Item.location.getPreviousLocationId()) {
+            case "menu":
+                CommandList.menu();
+                break;
         }
-        System.exit(0);
-    }
-
-    public static void about(){
-        System.out.println("This is the about page");
-    }
-
-    public static void soundSettings(){
-        System.out.println("These are the sound settings");
-    }
-
-    public static void a(){
-        System.out.println("You've chosen option A");
-    }
-
-    public static void b(){
-        System.out.println("You've chosen option B");
-    }
-
-    public static void c(){
-        System.out.println("You've chosen option C");
-    }
-
-    public static void d(){
-        System.out.println("You've chosen option D");
     }
 }
