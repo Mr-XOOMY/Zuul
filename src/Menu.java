@@ -37,6 +37,7 @@ public class Menu {
         String[] items = {
                 "Change",
                 "Reset",
+                "Play test sound",
                 "Back"
         };
         String locationId = "soundsettings";

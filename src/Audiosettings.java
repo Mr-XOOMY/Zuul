@@ -40,6 +40,9 @@ public class Audiosettings {
                 }
                 Item.drawItems(items);
                 break;
+            case "playtestsound":
+                Music.soundCheck();
+                break;
             case "back":
                 Music.music.getDevice().stop();
                 Music.music.getDevice().close();
