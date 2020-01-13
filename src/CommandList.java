@@ -30,7 +30,7 @@ public class CommandList {
         Audiosettings.reset(0);
         Music.themeSong();
         Music.music.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
-        //Art.drawArt("menu");
+        Art.drawArt("menu");
         //Storyline.drawStory("menu");
         Item.drawItems(items);
         Item.inputItems(items, locationId);
