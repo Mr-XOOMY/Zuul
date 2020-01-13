@@ -69,7 +69,7 @@ public class Menu {
                 "Back"
         };
         String locationId = "about";
-        System.out.println("This game has been developed by Roland Regtop and Dimitri (Achternaam)");
+        System.out.println("This game has been developed by Roland Regtop and Dimitri Kalaïtzakis");
         Item.drawItems(items);
         Item.inputItems(items, locationId);
     }
