@@ -5,6 +5,7 @@ public class Zuul{
     }
 
     public static void start(){
-        CommandList.menu();
+        Audiosettings.audioSettingsObject.reset(0);
+        Menu.menu.menu();
     }
 }

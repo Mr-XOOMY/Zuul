@@ -11,7 +11,7 @@ public class Audiosettings {
     Mixer.Info[] mixerInfo = AudioSystem.getMixerInfo();
     Mixer.Info info;
     ArrayList<Mixer.Info> audioDevice = new ArrayList<>();
-    static Audiosettings device = new Audiosettings();
+    static Audiosettings audioSettingsObject = new Audiosettings();
 
     public Audiosettings(){
         for(Mixer.Info info : mixerInfo) {
@@ -24,50 +24,50 @@ public class Audiosettings {
         info = audioDevice.get(deviceNumber);
     }
 
-    public static void inputCommand(String command, String[] items){
+    public void inputCommand(String command, String[] items){
         switch (command) {
             case "change":
-                change();
-                if (Item.location.getCurrentLocationId().equals("soundsettings")) {
-                    System.out.println("The current used audio device is, "+(Audiosettings.device.deviceNumber+1)+") "+Audiosettings.device.info.getDescription());
+                audioSettingsObject.change();
+                if (Item.itemObject.getCurrentLocationId().equals("soundsettings")) {
+                    System.out.println("The current used audio device is, "+(audioSettingsObject.deviceNumber+1)+") "+audioSettingsObject.info.getDescription());
                 }
-                Item.drawItems(items);
+                Item.itemObject.drawItems(items);
                 break;
             case "reset":
-                reset();
-                if (Item.location.getCurrentLocationId().equals("soundsettings")) {
-                    System.out.println("The current used audio device is, "+(Audiosettings.device.deviceNumber+1)+") "+Audiosettings.device.info.getDescription());
+                audioSettingsObject.reset();
+                if (Item.itemObject.getCurrentLocationId().equals("soundsettings")) {
+                    System.out.println("The current used audio device is, "+(audioSettingsObject.deviceNumber+1)+") "+audioSettingsObject.info.getDescription());
                 }
-                Item.drawItems(items);
+                Item.itemObject.drawItems(items);
                 break;
             case "playtestsound":
-                Music.soundCheck();
+                Music.musicObject.soundCheck();
                 break;
             case "back":
-                Music.music.getDevice().stop();
-                Music.music.getDevice().close();
-                CommandList.back();
+                Music.musicObject.getDevice().stop();
+                Music.musicObject.getDevice().close();
+                CommandList.commandListObject.back();
                 break;
         }
     }
 
-    public static void change(){
+    public void change(){
         System.out.println("These are all the audio playback devices."+System.lineSeparator());
-        device.setAudioDevice();
-        Music.soundCheck();
+        audioSettingsObject.setAudioDevice();
+        Music.musicObject.soundCheck();
         System.out.println("When you hear the test audio track, then your sound is setup correctly."+System.lineSeparator()+"" +
                 "When you don't hear the test audio track, please check if you have turned up your volume and please try the setup again or reset the changes to the default audio device."+System.lineSeparator());
     }
 
-    public static void reset(){
-        device.setAudioDevice(0);
-        Music.soundCheck();
+    public void reset(){
+        audioSettingsObject.setAudioDevice(0);
+        Music.musicObject.soundCheck();
         System.out.println("When you hear the test audio track, then your sound is setup correctly."+System.lineSeparator()+"" +
                 "When you don't hear the test audio track, please check if you have turned up your volume and please try the setup again or reset the changes to the default audio device."+System.lineSeparator());
     }
 
-    public static void reset(int deviceNumber){
-        device.setAudioDevice(deviceNumber);
+    public void reset(int deviceNumber){
+        audioSettingsObject.setAudioDevice(deviceNumber);
     }
 
     public void setAudioDevice(){

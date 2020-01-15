@@ -1,13 +1,15 @@
-import javax.sound.sampled.Clip;
 import java.util.Scanner;
 
 public class Item {
 
-    static Item location = new Item();
+    static Item itemObject = new Item();
     String previousLocationId;
     String currentLocationId;
 
-    public static void drawItems(String[] items) {
+    public Item(){
+    }
+
+    public void drawItems(String[] items) {
         System.out.println();
 
         for (String item : items) {
@@ -15,9 +17,9 @@ public class Item {
         }
     }
 
-    public static void inputItems(String[] items, String locationId) {
-        location.setPreviousLocationId(locationId);
-        location.setCurrentLocationId(locationId);
+    public void inputItems(String[] items, String locationId) {
+        setPreviousLocationId(locationId);
+        setCurrentLocationId(locationId);
 
         //noinspection InfiniteLoopStatement
         while (true) {
@@ -38,30 +40,40 @@ public class Item {
             if (command) {
                 switch (locationId) {
                     case "menu":
-                        Music.music.getDevice().stop();
-                        Music.music.getDevice().close();
-                        Menu.inputCommand(inputCommand);
+                        Menu.menu.inputCommand(inputCommand);
                         break;
                     //case "game":
                     //    Game.inputCommand(inputCommand);
                     //    break;
                     case "soundsettings":
-                        Audiosettings.inputCommand(inputCommand, items);
+                        Audiosettings.audioSettingsObject.inputCommand(inputCommand, items);
                         break;
                     case "music":
-                        Music.inputCommand(inputCommand, items);
+                        Music.musicObject.inputCommand(inputCommand, items);
                         break;
                     case "about":
-                        CommandList.inputCommand(inputCommand);
+                        CommandList.commandListObject.inputCommand(inputCommand);
                         break;
                     case "quit":
-                        Quit.inputCommand(inputCommand);
+                        Quit.quitObject.inputCommand(inputCommand);
                         break;
                 }
-            } else if (inputCommand.equals("menu") && !location.getCurrentLocationId().equals("menu")) {
-                CommandList.inputCommand(inputCommand);
-            }else {
-                CommandList.invalid(items);
+            } else {
+                if (inputCommand.equals("menu")) {
+                    switch (getCurrentLocationId()) {
+                        case "menu":
+                        case "soundsettings":
+                        case "music":
+                        case "about":
+                        case "quit":
+                            CommandList.commandListObject.invalid(items, locationId);
+                            break;
+                        default:
+                            CommandList.commandListObject.inputCommand(inputCommand);
+                    }
+                }else {
+                    CommandList.commandListObject.invalid(items, locationId);
+                }
             }
         }
     }
