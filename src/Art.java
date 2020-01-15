@@ -9,7 +9,6 @@ public class Art {
                 drawMenu();
                 break;
             case "soundsettings":
-
                 break;
             case "music":
                 break;
@@ -17,8 +16,6 @@ public class Art {
                 break;
             case "quit":
                 break;
-
-
         }
     }
 
