@@ -5,51 +5,48 @@ public class Storyline {
     // Draws ASCII artwork inside designated locations.
     public static void drawStory(String storyName){
         switch(storyName){
-            case "menu":
-
+            case "story1":
+                drawStory1();
                 break;
-            case "soundsettings":
-
+            case "story2":
                 break;
-            case "music":
+            case "story3":
                 break;
-            case "about":
+            case "story4":
                 break;
-            case "quit":
+            case "story5":
                 break;
-
-
         }
     }
-/*
-    public static void drawMenu(){
-        String artLocation = "Art/menu.txt";
-        printArt(artLocation);
+
+    public static void drawStory1(){
+        String storyLocation = "Story/story1.txt";
+        printStory(storyLocation);
     }
 
-    public static void drawSoundSettings(){
-        String artLocation = "Art/soundsettings.txt";
-        printArt(artLocation);
+    public static void drawStory2(){
+        String storyLocation = "Story/story2.txt";
+        printStory(storyLocation);
     }
 
-    public static void drawMusic(){
-        String artLocation = "Art/music.txt";
-        printArt(artLocation);
+    public static void drawStory3(){
+        String storyLocation = "Story/story3.txt";
+        printStory(storyLocation);
     }
 
-    public static void drawAbout(){
-        String artLocation = "Art/about.txt";
-        printArt(artLocation);
+    public static void drawStory4(){
+        String storyLocation = "Story/story4.txt";
+        printStory(storyLocation);
     }
 
-    public static void drawQuit(){
-        String artLocation = "Art/quit.txt";
-        printArt(artLocation);
+    public static void drawStory5(){
+        String storyLocation = "Story/story5.txt";
+        printStory(storyLocation);
     }
 
-    public static void printArt(String artLocation){
+    public static void printStory(String storyLocation){
         try {
-            BufferedReader input = new BufferedReader(new FileReader(artLocation));
+            BufferedReader input = new BufferedReader(new FileReader(storyLocation));
             String line = input.readLine();
             while (line != null) {
                 System.out.println(line);
@@ -61,5 +58,5 @@ public class Storyline {
             System.out.println("ACII Art could not be printed.");
         }
     }
-*/
+
 }
