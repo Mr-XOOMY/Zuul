@@ -1,6 +1,14 @@
+import javax.sound.sampled.Clip;
+
 public class Menu {
 
-    public static void inputCommand (String command) {
+    static Menu menu = new Menu();
+
+    public Menu(){
+
+    }
+
+    public void inputCommand (String command) {
         switch (command) {
             case "play":
                 play();
@@ -20,7 +28,7 @@ public class Menu {
         }
     }
 
-    public static void play () {
+    public void play () {
         String[] items = {
                 "A",
                 "B",
@@ -28,12 +36,14 @@ public class Menu {
                 "D"
         };
         String locationId = "game";
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
         System.out.println("You've started a game!");
-        Item.drawItems(items);
-        Item.inputItems(items, locationId);
+        Item.itemObject.drawItems(items);
+        Item.itemObject.inputItems(items, locationId);
     }
 
-    public static void soundSettings () {
+    public void soundSettings () {
         String[] items = {
                 "Change",
                 "Reset",
@@ -41,17 +51,20 @@ public class Menu {
                 "Back"
         };
         String locationId = "soundsettings";
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
+        Art.drawArt(locationId);
         System.out.println("WARNING! Only change audio device if needed. " +
                 System.lineSeparator() +
                 "Sometimes Linux wont chnage the audio output from the default output to another when switched and could be forced with this setting."+
                 System.lineSeparator() +
                 "Windows should not need this."+System.lineSeparator());
-        System.out.println("The current used audio device is, "+(Audiosettings.device.deviceNumber+1)+") "+Audiosettings.device.info.getDescription());
-        Item.drawItems(items);
-        Item.inputItems(items, locationId);
+        System.out.println("The current used audio device is, "+(Audiosettings.audioSettingsObject.deviceNumber+1)+") "+Audiosettings.audioSettingsObject.info.getDescription());
+        Item.itemObject.drawItems(items);
+        Item.itemObject.inputItems(items, locationId);
     }
 
-    public static void music () {
+    public void music () {
         String[] items = {
                 "Sound Check",
                 "Theme Song",
@@ -59,30 +72,52 @@ public class Menu {
                 "Back"
         };
         String locationId = "music";
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
+        Art.drawArt(locationId);
         System.out.println("You choose to play music.");
-        Item.drawItems(items);
-        Item.inputItems(items, locationId);
+        Item.itemObject.drawItems(items);
+        Item.itemObject.inputItems(items, locationId);
     }
 
 
-    public static void about () {
+    public void about () {
         String[] items = {
                 "Back"
         };
         String locationId = "about";
-        System.out.println("This game has been developed by Roland Regtop and Dimitri Kalaïtzakis");
-        Item.drawItems(items);
-        Item.inputItems(items, locationId);
+        Art.drawArt(locationId);
+        System.out.println("This game has been developed by Roland Regtop and Dimitri Kalaïtzakis.");
+        Item.itemObject.drawItems(items);
+        Item.itemObject.inputItems(items, locationId);
     }
 
-    public static void quit () {
+    public void quit () {
         String[] items = {
                 "Yes",
                 "No"
         };
         String locationId = "quit";
+        Art.drawArt(locationId);
         System.out.println("Are you sure you want to quit?");
-        Item.drawItems(items);
-        Item.inputItems(items, locationId);
+        Item.itemObject.drawItems(items);
+        Item.itemObject.inputItems(items, locationId);
+    }
+
+    public void menu(){
+        String[] items = {
+                "Play",
+                "Sound settings",
+                "Music",
+                "About",
+                "Quit"
+        };
+        String locationId = "menu";
+        if (!Music.musicObject.getDevice().isRunning()) {
+            Music.musicObject.themeSong();
+            Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
+        }
+        Art.drawArt(locationId);
+        Item.itemObject.inputItems(items, locationId);
     }
 }

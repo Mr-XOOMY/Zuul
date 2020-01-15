@@ -2,45 +2,31 @@ import javax.sound.sampled.Clip;
 
 public class CommandList {
 
-    public static void inputCommand(String command){
+    static CommandList commandListObject = new CommandList();
+
+    public CommandList(){
+    }
+
+    public void inputCommand(String command){
         switch (command) {
-            case "menu":
-                menu();
-                break;
             case "back":
-                back();
+                commandListObject.back();
                 break;
         }
     }
 
-    public static void invalid(String[] items){
+    public void invalid(String[] items, String locationdId){
         System.out.println("You've typed an invalid command...");
-        Item.drawItems(items);
+        if (!locationdId.equals("menu")) {
+            Item.itemObject.drawItems(items);
+        }
     }
 
-    public static void menu(){
-        String[] items = {
-                "Play",
-                "Sound settings",
-                "Music",
-                "About",
-                "Quit"
-        };
-        String locationId = "menu";
-        Audiosettings.reset(0);
-        Music.themeSong();
-        Music.music.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
-        Art.drawArt(locationId);
-        //Storyline.drawStory("menu");
-        Item.drawItems(items);
-        Item.inputItems(items, locationId);
-    }
+    public void back(){
 
-    public static void back(){
-
-        switch (Item.location.getPreviousLocationId()) {
+        switch (Item.itemObject.getPreviousLocationId()) {
             case "menu":
-                CommandList.menu();
+                Menu.menu.menu();
                 break;
         }
     }
