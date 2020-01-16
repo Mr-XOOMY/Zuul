@@ -27,6 +27,7 @@ public class Item {
             System.out.print("> ");
             String inputCommand = input.nextLine();
             inputCommand = inputCommand.replaceAll("\\s+", "").toLowerCase();
+            System.out.println();
             boolean command = false;
 
             for (String item : items) {

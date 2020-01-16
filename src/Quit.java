@@ -14,7 +14,7 @@ public class Quit {
     }
 
     public void yes () {
-        System.out.println(System.lineSeparator() + "Goodbye");
+        System.out.println("Goodbye");
 
         try {
             Thread.sleep(3000);
