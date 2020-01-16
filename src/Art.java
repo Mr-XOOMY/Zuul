@@ -2,49 +2,56 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class Art {
+
+    static Art artObject = new Art();
+
     // Draws ASCII artwork inside designated locations.
-    public static void drawArt(String artName){
+    public void drawArt(String artName){
         switch(artName){
             case "menu":
                 drawMenu();
                 break;
             case "soundsettings":
+                drawSoundSettings();
                 break;
             case "music":
+                drawMusic();
                 break;
             case "about":
+                drawAbout();
                 break;
             case "quit":
+                drawQuit();
                 break;
         }
     }
 
-    public static void drawMenu(){
+    public void drawMenu(){
         String artLocation = "Art/menu.txt";
         printArt(artLocation);
     }
 
-    public static void drawSoundSettings(){
+    public void drawSoundSettings(){
         String artLocation = "Art/soundsettings.txt";
         printArt(artLocation);
     }
 
-    public static void drawMusic(){
+    public void drawMusic(){
         String artLocation = "Art/music.txt";
         printArt(artLocation);
     }
 
-    public static void drawAbout(){
+    public void drawAbout(){
         String artLocation = "Art/about.txt";
         printArt(artLocation);
     }
 
-    public static void drawQuit(){
+    public void drawQuit(){
         String artLocation = "Art/quit.txt";
         printArt(artLocation);
     }
 
-    public static void printArt(String artLocation){
+    public void printArt(String artLocation){
         try {
             BufferedReader input = new BufferedReader(new FileReader(artLocation));
             String line = input.readLine();

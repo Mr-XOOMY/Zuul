@@ -1,0 +1,4 @@
+WARNING! Only change audio device if needed!
+Sometimes Linux wont chnage the audio output from the default output to another when switched and could be forced with this setting.
+Windows should not need this.
+You can always reset your changes with the reset option under Sound Settings.

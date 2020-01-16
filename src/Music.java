@@ -5,81 +5,110 @@ import java.io.File;
 
 public class Music {
 
-    static Music music = new Music();
+    static Music musicObject = new Music();
     Clip device;
-    static String nowPlaying;
+    String nowPlaying;
 
     public Music(){
-        Audiosettings playDevice = new Audiosettings();
 
         try{
-            device = AudioSystem.getClip(playDevice.getAudioDevice());
+            device = AudioSystem.getClip(Audiosettings.audioSettingsObject.getAudioDevice());
         }catch (Exception ex){
             ex.printStackTrace();
         }
     }
 
-    public static void inputCommand(String command, String[] items) {
+    public void inputCommand(String command, String[] items) {
         switch (command) {
             case "soundcheck":
                 soundCheck();
                 System.out.println(nowPlaying);
-                Item.drawItems(items);
+                Item.itemObject.drawItems(items);
                 break;
             case "themesong":
                 themeSong();
-                if (Item.location.getCurrentLocationId().equals("music")) {
+                if (Item.itemObject.getCurrentLocationId().equals("music")) {
                     System.out.println(nowPlaying);
-                    Item.drawItems(items);
+                    Item.itemObject.drawItems(items);
                 }
                 break;
-            case "mistymountains":
-                mistyMountains();
-                if (Item.location.getCurrentLocationId().equals("music")) {
+            case "theshire":
+                theShire();
+                if (Item.itemObject.getCurrentLocationId().equals("music")) {
                     System.out.println(nowPlaying);
-                    Item.drawItems(items);
+                    Item.itemObject.drawItems(items);
+                }
+                break;
+            case "themistymountainscold":
+                theMistyMountainsCold();
+                if (Item.itemObject.getCurrentLocationId().equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.itemObject.drawItems(items);
+                }
+                break;
+            case "riddlesinthedark":
+                riddlesInTheDark();
+                if (Item.itemObject.getCurrentLocationId().equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.itemObject.drawItems(items);
                 }
                 break;
             case "back":
-                music.getDevice().stop();
-                music.getDevice().close();
-                CommandList.back();
+                getDevice().stop();
+                getDevice().close();
+                CommandList.commandListObject.back();
                 break;
         }
     }
 
-    public static void soundCheck () {
-        music.getDevice().stop();
-        music.getDevice().close();
+    public void soundCheck () {
+        getDevice().stop();
+        getDevice().close();
         String songName = "Sound Check";
         String songLocation = "AudioFiles/soundcheck.wav";
         nowPlaying = playMusic(songLocation, songName);
     }
 
-    public static void themeSong (){
-        music.getDevice().stop();
-        music.getDevice().close();
+    public void themeSong (){
+        getDevice().stop();
+        getDevice().close();
         String songName = "Theme Song";
         String songLocation = "AudioFiles/themesong.wav";
         nowPlaying = playMusic(songLocation, songName);
     }
 
-    public static void mistyMountains (){
-        music.getDevice().stop();
-        music.getDevice().close();
-        String songName = "Misty Mountains";
-        String songLocation = "AudioFiles/mistymountains.wav";
+    public void theShire (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "The Shire";
+        String songLocation = "AudioFiles/theshire.wav";
         nowPlaying = playMusic(songLocation, songName);
     }
 
-    public static String playMusic (String musicLocation, String songName){
+    public void theMistyMountainsCold (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "The Misty Mountains Cold";
+        String songLocation = "AudioFiles/themistymountainscold.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
+    public void riddlesInTheDark (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "Riddles in the Dark";
+        String songLocation = "AudioFiles/riddlesinthedark.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
+    public String playMusic (String musicLocation, String songName){
         try{
             File musicPath = new File(musicLocation);
 
             if(musicPath.exists()){
                 AudioInputStream song = AudioSystem.getAudioInputStream(musicPath);
-                music.getDevice().open(song);
-                music.getDevice().start();
+                getDevice().open(song);
+                getDevice().start();
                 return "You're playing "+songName+".";
             }else{
                 return "Can't play song.";

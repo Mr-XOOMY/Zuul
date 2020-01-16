@@ -1,18 +1,20 @@
 public class Quit {
 
-    public static void inputCommand(String command) {
+    static Quit quitObject = new Quit();
+
+    public void inputCommand(String command) {
         switch (command) {
             case "yes":
                 yes();
                 break;
             case "no":
-                CommandList.back();
+                CommandList.commandListObject.back();
                 break;
         }
     }
 
-    public static void yes () {
-        System.out.println(System.lineSeparator() + "Goodbye");
+    public void yes () {
+        System.out.println("Goodbye");
 
         try {
             Thread.sleep(3000);
