@@ -50,10 +50,13 @@ public class Item {
                         Music.musicObject.inputCommand(inputCommand, items);
                         break;
                     case "about":
-                        CommandList.commandListObject.inputCommand(inputCommand);
+                        CommandList.commandListObject.inputCommand(inputCommand, roomId);
                         break;
                     case "quit":
                         Quit.quitObject.inputCommand(inputCommand);
+                        break;
+                    case "map":
+                        CommandList.commandListObject.inputCommand(inputCommand, roomId);
                         break;
                     case "room1":
                         Room.game.inputCommandRoom1(inputCommand);
@@ -63,7 +66,7 @@ public class Item {
                         break;
                 }
             } else {
-                if (inputCommand.equals("menu")) {
+                if (inputCommand.equals("menu") || inputCommand.equals("map")) {
                     switch (currentLocationId) {
                         case "menu":
                         case "soundsettings":
@@ -73,7 +76,7 @@ public class Item {
                             CommandList.commandListObject.invalid(items, locationId);
                             break;
                         default:
-                            CommandList.commandListObject.inputCommand(inputCommand);
+                            CommandList.commandListObject.inputCommand(inputCommand, roomId);
                     }
                 }else {
                     CommandList.commandListObject.invalid(items, locationId);
@@ -112,7 +115,7 @@ public class Item {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        CommandList.commandListObject.inputCommand(inputCommand);
+                        CommandList.commandListObject.inputCommand(inputCommand, roomId);
                         break;
                 }
             } else {
@@ -122,7 +125,7 @@ public class Item {
                             CommandList.commandListObject.invalid(items, locationId);
                             break;
                         default:
-                            CommandList.commandListObject.inputCommand(inputCommand);
+                            CommandList.commandListObject.inputCommand(inputCommand, roomId);
                     }
                 }else {
                     CommandList.commandListObject.invalid(items, locationId);
