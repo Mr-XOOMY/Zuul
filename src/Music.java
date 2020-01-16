@@ -10,7 +10,6 @@ public class Music {
     String nowPlaying;
 
     public Music(){
-        //Audiosettings playDevice = new Audiosettings();
 
         try{
             device = AudioSystem.getClip(Audiosettings.audioSettingsObject.getAudioDevice());
@@ -33,8 +32,22 @@ public class Music {
                     Item.itemObject.drawItems(items);
                 }
                 break;
-            case "mistymountains":
-                mistyMountains();
+            case "theshire":
+                theShire();
+                if (Item.itemObject.getCurrentLocationId().equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.itemObject.drawItems(items);
+                }
+                break;
+            case "themistymountainscold":
+                theMistyMountainsCold();
+                if (Item.itemObject.getCurrentLocationId().equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.itemObject.drawItems(items);
+                }
+                break;
+            case "riddlesinthedark":
+                riddlesInTheDark();
                 if (Item.itemObject.getCurrentLocationId().equals("music")) {
                     System.out.println(nowPlaying);
                     Item.itemObject.drawItems(items);
@@ -64,11 +77,27 @@ public class Music {
         nowPlaying = playMusic(songLocation, songName);
     }
 
-    public void mistyMountains (){
+    public void theShire (){
         getDevice().stop();
         getDevice().close();
-        String songName = "Misty Mountains";
-        String songLocation = "AudioFiles/mistymountains.wav";
+        String songName = "The Shire";
+        String songLocation = "AudioFiles/theshire.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
+    public void theMistyMountainsCold (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "The Misty Mountains Cold";
+        String songLocation = "AudioFiles/themistymountainscold.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
+    public void riddlesInTheDark (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "Riddles in the Dark";
+        String songLocation = "AudioFiles/riddlesinthedark.wav";
         nowPlaying = playMusic(songLocation, songName);
     }
 

@@ -2,49 +2,88 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class Storyline {
+
+    static Storyline storyLineObject = new Storyline();
+
     // Draws ASCII artwork inside designated locations.
-    public static void drawStory(String storyName){
+    public void drawStory(String storyName){
         switch(storyName){
+            case "soundsettings":
+                drawSoundSettings();
+                break;
+            case "music":
+                drawMusic();
+                break;
+            case "about":
+                drawAbout();
+                break;
+            case "quit":
+                drawQuit();
+                break;
             case "story1":
                 drawStory1();
                 break;
             case "story2":
+                drawStory2();
                 break;
             case "story3":
+                drawStory3();
                 break;
             case "story4":
+                drawStory4();
                 break;
             case "story5":
+                drawStory5();
                 break;
         }
     }
 
-    public static void drawStory1(){
+    public void drawSoundSettings(){
+        String storyLocation = "Story/soundsettings.txt";
+        printStory(storyLocation);
+    }
+
+    public void drawMusic(){
+        String storyLocation = "Story/music.txt";
+        printStory(storyLocation);
+    }
+
+    public void drawAbout(){
+        String storyLocation = "Story/about.txt";
+        printStory(storyLocation);
+    }
+
+    public void drawQuit(){
+        String storyLocation = "Story/quit.txt";
+        printStory(storyLocation);
+    }
+
+    public void drawStory1(){
         String storyLocation = "Story/story1.txt";
         printStory(storyLocation);
     }
 
-    public static void drawStory2(){
+    public void drawStory2(){
         String storyLocation = "Story/story2.txt";
         printStory(storyLocation);
     }
 
-    public static void drawStory3(){
+    public void drawStory3(){
         String storyLocation = "Story/story3.txt";
         printStory(storyLocation);
     }
 
-    public static void drawStory4(){
+    public void drawStory4(){
         String storyLocation = "Story/story4.txt";
         printStory(storyLocation);
     }
 
-    public static void drawStory5(){
+    public void drawStory5(){
         String storyLocation = "Story/story5.txt";
         printStory(storyLocation);
     }
 
-    public static void printStory(String storyLocation){
+    public void printStory(String storyLocation){
         try {
             BufferedReader input = new BufferedReader(new FileReader(storyLocation));
             String line = input.readLine();
@@ -55,7 +94,7 @@ public class Storyline {
             input.close();
         } catch(Exception ex){
             ex.printStackTrace();
-            System.out.println("ACII Art could not be printed.");
+            System.out.println("Storyline could not be printed.");
         }
     }
 
