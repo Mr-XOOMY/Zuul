@@ -53,12 +53,8 @@ public class Menu {
         String locationId = "soundsettings";
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
-        Art.drawArt(locationId);
-        System.out.println("WARNING! Only change audio device if needed. " +
-                System.lineSeparator() +
-                "Sometimes Linux wont chnage the audio output from the default output to another when switched and could be forced with this setting."+
-                System.lineSeparator() +
-                "Windows should not need this."+System.lineSeparator());
+        Art.artObject.drawArt(locationId);
+        Storyline.storyLineObject.drawStory(locationId);
         System.out.println("The current used audio device is, "+(Audiosettings.audioSettingsObject.deviceNumber+1)+") "+Audiosettings.audioSettingsObject.info.getDescription());
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
@@ -68,14 +64,16 @@ public class Menu {
         String[] items = {
                 "Sound Check",
                 "Theme Song",
-                "Misty Mountains",
+                "The Shire",
+                "The Misty Mountains Cold",
+                "Riddles in the Dark",
                 "Back"
         };
         String locationId = "music";
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
-        Art.drawArt(locationId);
-        System.out.println("You choose to play music.");
+        Art.artObject.drawArt(locationId);
+        Storyline.storyLineObject.drawStory(locationId);
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -86,8 +84,8 @@ public class Menu {
                 "Back"
         };
         String locationId = "about";
-        Art.drawArt(locationId);
-        System.out.println("This game has been developed by Roland Regtop and Dimitri Kalaïtzakis.");
+        Art.artObject.drawArt(locationId);
+        Storyline.storyLineObject.drawStory(locationId);
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -98,8 +96,8 @@ public class Menu {
                 "No"
         };
         String locationId = "quit";
-        Art.drawArt(locationId);
-        System.out.println("Are you sure you want to quit?");
+        Art.artObject.drawArt(locationId);
+        Storyline.storyLineObject.drawStory(locationId);
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -117,7 +115,7 @@ public class Menu {
             Music.musicObject.themeSong();
             Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
         }
-        Art.drawArt(locationId);
+        Art.artObject.drawArt(locationId);
         Item.itemObject.inputItems(items, locationId);
     }
 }
