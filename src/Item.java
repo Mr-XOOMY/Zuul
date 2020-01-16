@@ -79,6 +79,56 @@ public class Item {
         }
     }
 
+    public void inputItems(String[] items, String locationId, Countdown countDown) {
+        setPreviousLocationId(locationId);
+        setCurrentLocationId(locationId);
+
+        //noinspection InfiniteLoopStatement
+        while (true) {
+            Scanner input = new Scanner(System.in);  // Create a Scanner object
+            System.out.print("> ");
+            String inputCommand = input.nextLine();
+            inputCommand = inputCommand.replaceAll("\\s+", "").toLowerCase();
+            System.out.println();
+            boolean command = false;
+
+            for (String item : items) {
+                item = item.replaceAll("\\s+", "").toLowerCase();
+                if (inputCommand.equals(item)) {
+                    command = true;
+                    break;
+                }
+            }
+
+            if (command) {
+                switch (locationId) {
+                    case "about":
+                        countDown.timer.cancel();
+                        System.out.println("You were on time!");
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        CommandList.commandListObject.inputCommand(inputCommand);
+                        break;
+                }
+            } else {
+                if (inputCommand.equals("menu")) {
+                    switch (getCurrentLocationId()) {
+                        case "about":
+                            CommandList.commandListObject.invalid(items, locationId);
+                            break;
+                        default:
+                            CommandList.commandListObject.inputCommand(inputCommand);
+                    }
+                }else {
+                    CommandList.commandListObject.invalid(items, locationId);
+                }
+            }
+        }
+    }
+
     public void setPreviousLocationId (String locationId){
         if (previousLocationId == null) {
             previousLocationId = locationId;
