@@ -5,7 +5,6 @@ public class Menu {
     static Menu menu = new Menu();
 
     public Menu(){
-
     }
 
     public void inputCommand (String command) {
@@ -29,18 +28,19 @@ public class Menu {
     }
 
     public void play () {
-        String[] items = {
-                "A",
-                "B",
-                "C",
-                "D"
-        };
-        String locationId = "game";
-        Music.musicObject.getDevice().stop();
-        Music.musicObject.getDevice().close();
-        System.out.println("You've started a game!");
-        Item.itemObject.drawItems(items);
-        Item.itemObject.inputItems(items, locationId);
+        
+        if (Item.itemObject.roomId == null){
+            Room room1 = new Room("room1");
+        }else {
+            switch (Item.itemObject.roomId) {
+                case "room1":
+                    Room.game.room1();
+                    break;
+                case "room2":
+                    Room.game.room2();
+                    break;
+            }
+        }
     }
 
     public void soundSettings () {

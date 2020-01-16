@@ -7,6 +7,9 @@ public class CommandList {
 
     public void inputCommand(String command){
         switch (command) {
+            case "menu":
+                Menu.menu.menu();
+                break;
             case "back":
                 commandListObject.back();
                 break;
@@ -22,7 +25,7 @@ public class CommandList {
 
     public void back(){
 
-        switch (Item.itemObject.getPreviousLocationId()) {
+        switch (Item.itemObject.currentLocationId) {
             case "menu":
                 Menu.menu.menu();
                 break;
