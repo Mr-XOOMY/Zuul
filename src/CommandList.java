@@ -32,6 +32,11 @@ public class CommandList {
         Music.music.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
         Art.drawArt(locationId);
         //Storyline.drawStory("menu");
+        try {
+            Countdown.run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         Item.drawItems(items);
         Item.inputItems(items, locationId);
     }
