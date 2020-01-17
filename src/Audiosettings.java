@@ -28,14 +28,14 @@ public class Audiosettings {
         switch (command) {
             case "change":
                 audioSettingsObject.change();
-                if (Item.itemObject.getCurrentLocationId().equals("soundsettings")) {
+                if (Item.itemObject.currentLocationId.equals("soundsettings")) {
                     System.out.println("The current used audio device is, "+(audioSettingsObject.deviceNumber+1)+") "+audioSettingsObject.info.getDescription());
                 }
                 Item.itemObject.drawItems(items);
                 break;
             case "reset":
                 audioSettingsObject.reset();
-                if (Item.itemObject.getCurrentLocationId().equals("soundsettings")) {
+                if (Item.itemObject.currentLocationId.equals("soundsettings")) {
                     System.out.println("The current used audio device is, "+(audioSettingsObject.deviceNumber+1)+") "+audioSettingsObject.info.getDescription());
                 }
                 Item.itemObject.drawItems(items);

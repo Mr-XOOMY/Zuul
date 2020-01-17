@@ -27,28 +27,28 @@ public class Music {
                 break;
             case "themesong":
                 themeSong();
-                if (Item.itemObject.getCurrentLocationId().equals("music")) {
+                if (Item.itemObject.currentLocationId.equals("music")) {
                     System.out.println(nowPlaying);
                     Item.itemObject.drawItems(items);
                 }
                 break;
             case "theshire":
                 theShire();
-                if (Item.itemObject.getCurrentLocationId().equals("music")) {
+                if (Item.itemObject.currentLocationId.equals("music")) {
                     System.out.println(nowPlaying);
                     Item.itemObject.drawItems(items);
                 }
                 break;
             case "themistymountainscold":
                 theMistyMountainsCold();
-                if (Item.itemObject.getCurrentLocationId().equals("music")) {
+                if (Item.itemObject.currentLocationId.equals("music")) {
                     System.out.println(nowPlaying);
                     Item.itemObject.drawItems(items);
                 }
                 break;
             case "riddlesinthedark":
                 riddlesInTheDark();
-                if (Item.itemObject.getCurrentLocationId().equals("music")) {
+                if (Item.itemObject.currentLocationId.equals("music")) {
                     System.out.println(nowPlaying);
                     Item.itemObject.drawItems(items);
                 }

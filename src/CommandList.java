@@ -5,10 +5,16 @@ public class CommandList {
     public CommandList(){
     }
 
-    public void inputCommand(String command){
+    public void inputCommand(String command, String roomId){
         switch (command) {
+            case "menu":
+                Menu.menu.menu();
+                break;
+            case "map":
+                Map.map.map(roomId);
+                break;
             case "back":
-                commandListObject.back();
+                back();
                 break;
         }
     }
@@ -22,9 +28,15 @@ public class CommandList {
 
     public void back(){
 
-        switch (Item.itemObject.getPreviousLocationId()) {
+        switch (Item.itemObject.previousLocationId) {
             case "menu":
                 Menu.menu.menu();
+                break;
+            case "room1":
+                Room.game.room1();
+                break;
+            case "room2":
+                Room.game.room2();
                 break;
         }
     }

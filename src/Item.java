@@ -5,6 +5,7 @@ public class Item {
     static Item itemObject = new Item();
     String previousLocationId;
     String currentLocationId;
+    String roomId;
 
     public Item(){
     }
@@ -18,8 +19,7 @@ public class Item {
     }
 
     public void inputItems(String[] items, String locationId) {
-        setPreviousLocationId(locationId);
-        setCurrentLocationId(locationId);
+        setLocationId(locationId);
 
         //noinspection InfiniteLoopStatement
         while (true) {
@@ -43,9 +43,6 @@ public class Item {
                     case "menu":
                         Menu.menu.inputCommand(inputCommand);
                         break;
-                    //case "game":
-                    //    Game.inputCommand(inputCommand);
-                    //    break;
                     case "soundsettings":
                         Audiosettings.audioSettingsObject.inputCommand(inputCommand, items);
                         break;
@@ -53,15 +50,24 @@ public class Item {
                         Music.musicObject.inputCommand(inputCommand, items);
                         break;
                     case "about":
-                        CommandList.commandListObject.inputCommand(inputCommand);
+                        CommandList.commandListObject.inputCommand(inputCommand, roomId);
                         break;
                     case "quit":
                         Quit.quitObject.inputCommand(inputCommand);
                         break;
+                    case "map":
+                        CommandList.commandListObject.inputCommand(inputCommand, roomId);
+                        break;
+                    case "room1":
+                        Room.game.inputCommandRoom1(inputCommand);
+                        break;
+                    case "room2":
+                        Room.game.inputCommandRoom2(inputCommand);
+                        break;
                 }
             } else {
-                if (inputCommand.equals("menu")) {
-                    switch (getCurrentLocationId()) {
+                if (inputCommand.equals("menu") || inputCommand.equals("map")) {
+                    switch (currentLocationId) {
                         case "menu":
                         case "soundsettings":
                         case "music":
@@ -70,7 +76,7 @@ public class Item {
                             CommandList.commandListObject.invalid(items, locationId);
                             break;
                         default:
-                            CommandList.commandListObject.inputCommand(inputCommand);
+                            CommandList.commandListObject.inputCommand(inputCommand, roomId);
                     }
                 }else {
                     CommandList.commandListObject.invalid(items, locationId);
@@ -80,8 +86,7 @@ public class Item {
     }
 
     public void inputItems(String[] items, String locationId, Countdown countDown) {
-        setPreviousLocationId(locationId);
-        setCurrentLocationId(locationId);
+        setLocationId(locationId);
 
         //noinspection InfiniteLoopStatement
         while (true) {
@@ -110,17 +115,17 @@ public class Item {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        CommandList.commandListObject.inputCommand(inputCommand);
+                        CommandList.commandListObject.inputCommand(inputCommand, roomId);
                         break;
                 }
             } else {
                 if (inputCommand.equals("menu")) {
-                    switch (getCurrentLocationId()) {
+                    switch (currentLocationId) {
                         case "about":
                             CommandList.commandListObject.invalid(items, locationId);
                             break;
                         default:
-                            CommandList.commandListObject.inputCommand(inputCommand);
+                            CommandList.commandListObject.inputCommand(inputCommand, roomId);
                     }
                 }else {
                     CommandList.commandListObject.invalid(items, locationId);
@@ -129,23 +134,22 @@ public class Item {
         }
     }
 
-    public void setPreviousLocationId (String locationId){
+    public void setLocationId (String locationId){
         if (previousLocationId == null) {
             previousLocationId = locationId;
+            currentLocationId = locationId;
         }else {
             previousLocationId = currentLocationId;
+            currentLocationId = locationId;
         }
-    }
 
-    public void setCurrentLocationId (String locationId){
-        currentLocationId = locationId;
-    }
-
-    public String getPreviousLocationId (){
-        return previousLocationId;
-    }
-
-    public String getCurrentLocationId (){
-        return currentLocationId;
+        switch (locationId){
+            case "room1":
+                roomId = locationId;
+                break;
+            case "room2":
+                roomId = locationId;
+                break;
+        }
     }
 }
