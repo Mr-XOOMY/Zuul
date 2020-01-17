@@ -17,7 +17,7 @@ public class Countdown {
             } catch (InterruptedException tits) {
                 tits.printStackTrace();
             }
-            System.exit(0);
+           // System.exit(0);
         }
     };
 }

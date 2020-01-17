@@ -9,7 +9,7 @@ public class Room {
     boolean correctItems = false;
 
     // Checks for items inside the inventory array.
-    
+
     public boolean checkItems(){
         boolean sword = false;
         boolean ring = false;
@@ -61,7 +61,7 @@ public class Room {
 
     public void room1(){
         String[] items = {
-                "continue"
+                "Continue"
         };
         String locationId = "room1";
         Music.musicObject.getDevice().stop();
@@ -81,7 +81,7 @@ public class Room {
 
     public void room2(){
         String[] items = {
-                "continue"
+                "Continue"
         };
         String locationId = "room2";
         Music.musicObject.getDevice().stop();
@@ -100,13 +100,14 @@ public class Room {
     }
     public void room3(){
         String[] items = {
-                "yes",
-                "no"
+                "Yes",
+                "No"
         };
         String locationId = "room3";
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         System.out.println("Entered Room 3");
+        System.out.println(Item.itemObject.roomId);
         Item.itemObject.drawItems(items);
         Countdown countDown = new Countdown();
         countDown.timer.schedule(countDown.task, 5000);
@@ -125,7 +126,9 @@ public class Room {
 
     public void room4(){
         String[] items = {
-                "continue"
+                "Take Acorn",
+                "Persuade Thorin",
+                "Do Not Interact"
         };
         String locationId = "room4";
         Music.musicObject.getDevice().stop();
@@ -136,16 +139,42 @@ public class Room {
     }
 
     public void inputCommandRoom4(String command){
+        Room room5;
         switch(command){
-            case "continue":
-            Room room5 = new Room("room5");
-            break;
+            case "takeacorn":
+                System.out.println("You grabbed the acorn. To be sown in your front garden.");
+                String[] items = {
+                        "Persuade Thorin",
+                        "Do Not Interact"
+                };
+                Item.itemObject.drawItems(items);
+                break;
+            case "persuadethorin":
+                System.out.println("You have successfully persuaded Thorin to show the map to Lord Elrond, Lord of Rivendell, the only one who could translate the Moon runes on it.");
+                mapRead = true;
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                room5 = new Room("room5");
+                break;
+            case "donotinteract":
+                System.out.println("You chose not to interact, and follwed the company of dwarfs on their quest.");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                room5 = new Room("room5");
+                break;
         }
     }
 
     public void room5(){
         String[] items = {
-                "continue"
+                "Follow Path",
+                "Explore Cave"
         };
         String locationId = "room5";
         Music.musicObject.getDevice().stop();
@@ -156,7 +185,18 @@ public class Room {
     }
     public void inputCommandRoom5(String command){
         switch(command){
-            case "continue":
+            case "followpath":
+                System.out.println("You attempted to follow the path, yet it was in vain. The bones of your miserable corpse were crushed to dust by the Stone Giants.");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Item.itemObject.roomId = null;
+                Menu.menu.menu();
+                break;
+            case "explorecave":
+                System.out.println("While exploring the cave, you felt the earth disintegrate beneath your feet, and fell deep down into the core of the mountain.");
                 Room room6 = new Room("room6");
                 break;
         }
@@ -166,7 +206,7 @@ public class Room {
         String[] items = {
                 "continue"
         };
-        String locationId = "room5";
+        String locationId = "room6";
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         System.out.println("Entered Room 6");
@@ -185,10 +225,10 @@ public class Room {
         String[] items = {
                 "continue"
         };
-        String locationId = "room5";
+        String locationId = "room7";
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
-        System.out.println("Entered Room 6");
+        System.out.println("Entered Room 7");
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }

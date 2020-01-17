@@ -39,6 +39,21 @@ public class Menu {
                 case "room2":
                     Room.game.room2();
                     break;
+                case "room3":
+                    Room.game.room3();
+                    break;
+                case "room4":
+                    Room.game.room4();
+                    break;
+                case "room5":
+                    Room.game.room5();
+                    break;
+                case "room6":
+                    Room.game.room6();
+                    break;
+                case "room7":
+                    Room.game.room7();
+                    break;
             }
         }
     }

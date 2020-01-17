@@ -150,6 +150,21 @@ public class Item {
             case "room2":
                 roomId = locationId;
                 break;
+            case "room3":
+                roomId = locationId;
+                break;
+            case "room4":
+                roomId = locationId;
+                break;
+            case "room5":
+                roomId = locationId;
+                break;
+            case "room6":
+                roomId = locationId;
+                break;
+            case "room7":
+                roomId = locationId;
+                break;
         }
     }
 }
