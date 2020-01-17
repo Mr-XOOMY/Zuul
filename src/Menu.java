@@ -87,8 +87,6 @@ public class Menu {
         Art.artObject.drawArt(locationId);
         Storyline.storyLineObject.drawStory(locationId);
         Item.itemObject.drawItems(items);
-        //Countdown countDown = new Countdown();
-        //countDown.timer.schedule(countDown.task, 5000);
         Item.itemObject.inputItems(items, locationId);
     }
 
