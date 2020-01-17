@@ -64,6 +64,18 @@ public class Item {
                     case "room2":
                         Room.game.inputCommandRoom2(inputCommand);
                         break;
+                    case "room4":
+                        Room.game.inputCommandRoom4(inputCommand);
+                        break;
+                    case "room5":
+                        Room.game.inputCommandRoom5(inputCommand);
+                        break;
+                    case "room6":
+                        Room.game.inputCommandRoom6(inputCommand);
+                        break;
+                    case "room7":
+                        Room.game.inputCommandRoom7(inputCommand);
+                        break;
                 }
             } else {
                 if (inputCommand.equals("menu") || inputCommand.equals("map")) {
@@ -107,26 +119,14 @@ public class Item {
 
             if (command) {
                 switch (locationId) {
-                    case "about":
+                    case "room3":
                         countDown.timer.cancel();
-                        System.out.println("You were on time!");
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        CommandList.commandListObject.inputCommand(inputCommand, roomId);
+                        Room.game.inputCommandRoom3(inputCommand);
                         break;
                 }
             } else {
-                if (inputCommand.equals("menu")) {
-                    switch (currentLocationId) {
-                        case "about":
-                            CommandList.commandListObject.invalid(items, locationId);
-                            break;
-                        default:
-                            CommandList.commandListObject.inputCommand(inputCommand, roomId);
-                    }
+                if (inputCommand.equals("menu") || inputCommand.equals("map")) {
+                    CommandList.commandListObject.inputCommand(inputCommand, roomId);
                 }else {
                     CommandList.commandListObject.invalid(items, locationId);
                 }
@@ -148,6 +148,21 @@ public class Item {
                 roomId = locationId;
                 break;
             case "room2":
+                roomId = locationId;
+                break;
+            case "room3":
+                roomId = locationId;
+                break;
+            case "room4":
+                roomId = locationId;
+                break;
+            case "room5":
+                roomId = locationId;
+                break;
+            case "room6":
+                roomId = locationId;
+                break;
+            case "room7":
                 roomId = locationId;
                 break;
         }
