@@ -6,7 +6,8 @@ public class Room {
 
     String[] inventory = new String[2];
     boolean mapRead = false;
-    boolean correctItems = false;
+    boolean sword = false;
+    boolean magicalring = false;
     boolean firstrun = true;
     static Room game = new Room();
 
@@ -41,22 +42,16 @@ public class Room {
 
     // Checks for items inside the inventory array.
 
-    public boolean checkItems(){
-        boolean sword = false;
-        boolean magicalring = false;
+    public void checkItems(){
 
         for(String item : inventory){
-            if(item.equals("sword")){
-                sword = true;
+            if (item != null) {
+                if(item.equals("sword")){
+                    sword = true;
+                }else if (item.equals("magicalring")){
+                    magicalring = true;
+                }
             }
-            if(item.equals("magicalring")){
-                magicalring = true;
-            }
-        }
-        if(sword && magicalring){
-            return true;
-        } else{
-            return false;
         }
     }
 
@@ -152,7 +147,7 @@ public class Room {
         Music.musicObject.getDevice().close();
         Music.musicObject.theAdventureBegins2();
         // Gandalf geeft zwaard dus die word toegevoegd aan de inventory
-        inventory[0] = "sword";
+        game.inventory[0] = "sword";
         // ASCI art of elf
         //Art.artObject.drawHobbitHole();
         //Storyline.storyLineObject.drawStory4();
@@ -165,7 +160,7 @@ public class Room {
         switch(command){
             case "takeacorn":
                 System.out.println("You grabbed the acorn to be sown in your front garden.");
-                inventory[1] = "acorn";
+                game.inventory[1] = "acorn";
                 String[] items = {
                         "Persuade Thorin",
                         "Do Not Interact"
@@ -174,7 +169,7 @@ public class Room {
                 break;
             case "persuadethorin":
                 System.out.println("You have successfully persuaded Thorin to show the map to Lord Elrond, Lord of Rivendell, the only one who could translate the Moon runes on it.");
-                mapRead = true;
+                game.mapRead = true;
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
@@ -239,7 +234,7 @@ public class Room {
         Music.musicObject.getDevice().close();
         Music.musicObject.riddlesInTheDark();
         Art.artObject.drawSmeagol();
-        Storyline.storyLineObject.drawStory6();
+        //Storyline.storyLineObject.drawStory6();
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -248,10 +243,8 @@ public class Room {
         if (firstrun){
             switch(command){
                 case "inspectshimmering":
-                    System.out.println("You found a magical ring and put it into your pocket.");
-                    //check array inventory full
-                    if () {
-                        System.out.println("You have no more pockets to put stuff. Which item do you want to drop?");
+                    if (inventory[1] != null) {
+                        System.out.println("You found a magical ring but you have no more pockets to spare to put stuff. Which item do you want to drop?");
                         String[] items = {
                                 "Sword",
                                 "Acorn",
@@ -261,13 +254,19 @@ public class Room {
                         String locationId = "room6_2";
                         Item.itemObject.inputItems(items, locationId);
                     }else {
-                        inventory[1] = "magicalring";
-                        inputCommandRoom6_1(false);
+                        System.out.println("You found a magical ring and put it into your pocket.");
+                        game.inventory[1] = "magicalring";
+                        String[] items = {
+                                "Inspect Sound"
+                        };
+                        String locationId = "room6_1";
+                        Item.itemObject.drawItems(items);
+                        Item.itemObject.inputItems(items, locationId);
                     }
                     break;
                 case "inspectsound":
                     //initiate riddle function
-                    Room room6 = new Room("room7");
+                    Room room7 = new Room("room7");
                     break;
             }
         }else {
@@ -278,59 +277,46 @@ public class Room {
 
     public void inputCommandRoom6_2(String command){
         firstrun = false;
+        String[] items = {
+                "Inspect Sound"
+        };
+        String locationId = "room6_1";
         switch (command){
             case "sword":
-                inventory[0] = "magicalring";
-                String[] items = {
-                        "Inspect Sound"
-                };
-                String locationId = "room6_1"
+                game.inventory[0] = "magicalring";
                 Item.itemObject.drawItems(items);
                 Item.itemObject.inputItems(items, locationId);
                 break;
             case "acorn":
-                inventory[1] = "magicalring";
-                String[] items = {
-                        "Inspect Sound"
-                };
-                String locationId = "room6_1"
+                game.inventory[1] = "magicalring";
                 Item.itemObject.drawItems(items);
                 Item.itemObject.inputItems(items, locationId);
                 break;
             case "magicalring":
-                String[] items = {
-                        "Inspect Sound"
-                };
-                String locationId = "room6_1"
                 Item.itemObject.drawItems(items);
                 Item.itemObject.inputItems(items, locationId);
-                break;
-        }
-    }
-
-    public void inputCommandRoom6_3(String command){
-        switch (command){
-            case "inspectsound":
-                inventory[0] = "magicalring";
-                inputCommandRoom6_1(false);
                 break;
         }
     }
 
     public void room7(){
-        String[] items = {
-                "continue"
-        };
-        String locationId = "room7";
-        Music.musicObject.getDevice().stop();
-        Music.musicObject.getDevice().close();
-        Music.musicObject.riddlesInTheDark();
-        //ASCII art of Erebor
-        //Art.artObject.drawSmeagol();
-        //Storyline.storyLineObject.drawStory7();
-        Item.itemObject.drawItems(items);
-        Item.itemObject.inputItems(items, locationId);
+        game.checkItems();
+        if (game.mapRead && game.sword && game.magicalring) {
+            // use game-over function
+            System.out.println("You've completed the quest.");
+        }else if (!game.mapRead) {
+            // use game-over function
+            System.out.println("You didn't let Lord Elrond read the map so you could not find the secret entrance into Erobor. Quest FAILED!");
+        } else if (!game.sword) {
+            // use game-over function
+            System.out.println("You dont have a sword to kill Smaug. Quest FAILED!");
+        }else {
+            // use game-over function
+            System.out.println("You could not get undetected around Smaug, if you only had something to make you invisibleplay. Quest FAILED!");
+        }
+
     }
+
     public void inputCommandRoom7(String command){
         switch(command){
             case "continue":
