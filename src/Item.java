@@ -70,8 +70,11 @@ public class Item {
                     case "room5":
                         Room.game.inputCommandRoom5(inputCommand);
                         break;
-                    case "room6":
-                        Room.game.inputCommandRoom6(inputCommand);
+                    case "room6_1":
+                        Room.game.inputCommandRoom6_1(inputCommand, Room.game.getFirstRun());
+                        break;
+                    case "room6_2":
+                        Room.game.inputCommandRoom6_2(inputCommand);
                         break;
                     case "room7":
                         Room.game.inputCommandRoom7(inputCommand);
@@ -88,6 +91,8 @@ public class Item {
                             CommandList.commandListObject.invalid(items, locationId);
                             break;
                         default:
+                            Music.musicObject.getDevice().stop();
+                            Music.musicObject.getDevice().close();
                             CommandList.commandListObject.inputCommand(inputCommand, roomId);
                     }
                 }else {

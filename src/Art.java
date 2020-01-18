@@ -51,6 +51,21 @@ public class Art {
         printArt(artLocation);
     }
 
+    public void drawHobbitHole(){
+        String artLocation = "Art/hobbithole.txt";
+        printArt(artLocation);
+    }
+
+    public void drawSmeagol(){
+        String artLocation = "Art/smeagol.txt";
+        printArt(artLocation);
+    }
+
+    public void drawMountain(){
+        String artLocation = "Art/hobbithole.txt";
+        printArt(artLocation);
+    }
+
     public void printArt(String artLocation){
         try {
             BufferedReader input = new BufferedReader(new FileReader(artLocation));

@@ -1,1 +1,54 @@
-This game has been developed by Roland Regtop and Dimitri Kalaitzakis.
+                                                                                                                                                                                              
+                                                                  `.--.``                                                                                                                     
+                                                               .ymhsosdMh                                                                                                                     
+                                                              oNs`     /s :os+o+:  `/oooooo:`/+oooo+-       -++++/++- .+++o+                                                                  
+                                                             /Md        :  NN  +My  :Mh```-: :Mo   -dN/:NM+`s-.sM/ `/sM.  .o                                                                  
+                                                             hMs           Nm  .Ms  .My.../` -Mo     hm`hM`    +M/   /Ndo-                                                                    
+                                                             mMs           Nm/oMs   .Md//+y` -Mo     dN`hM`    +M:     :odNy                                                                  
+                                                             yMd        `  Nm  oM+  -Ms    + :Mo    /M/ hM`    oM/  ./    sM.                                                                 
+                                                             `NM+       s :dd:` :hs:+ddsooho`odsoo+o+. :yd/`  -ydy-  yo/++s-                                                                  
+                                                              .hMy.  `.yy                                                                                                                     
+                                                                -ohdddhs-                                                                                                                     
+                                                                           
+
+                                                                                                                   
+                                                          This game has been developed by Roland Regtop and Dimitri Kalaitzakis.
+                                                                                                                             
+                                                                                                                             
+                                                                                                                             
+                                                          Roland Regtop                                                      
+                                                                                                                             
+                                                          Framework                    Game                    External Files
+                                                                                                                        
+                                                           - Menu                       - Map                  - Audio Files
+                                                           - Audiosettings                                     - ASCII Art
+                                                           - Music                                             - Maps
+                                                           - About                          
+                                                           - Quit
+
+
+                                                                          
+                                                          Dimitri Kalaitzakis
+                                                                   
+                                                          Framework                    Game                    External Files
+                                                                                                                        
+                                                                                        - Art                  - Storylines
+                                                                                        - Storyline            
+                                                                                        - Countdown            
+                                                                                        - Room 1
+                                                                                        - Room 2
+                                                                                        
+
+                                                                                                      
+                                       ``````                                                                                                                                                 
+                                       .hMMd-                                                                                                                                                 
+                                        `MM/`:+o.    :o/``/o+oo.++++//+o.+oo+o/. .++:`  .++-  `/+++o+--++++/++:      .++++o/. ./o+`   `+o: .+++o+                                             
+                                         NM:  dmN+   `M..Ns   o++..Md` + oM/ .mM. mM.    sd `yd-   `+/s-.sM/ `+/MM:`hd-    +Ny`.Mmm-   /m +M:  `s                                             
+                                         mM:  d:/Nh`  N``dNs/`     Nd    +M/  hN` hM     om yM.          +M/    NN yM.      /Ms`M`oMo  :d :Nmo:`                                              
+                                         NM:  y/ `sNo m.  .+yNd-   Md    +Ms/dN`  yM     od hM-          +M:    Nm yM:      .Mh M  .dm/-m   -odMy`                                            
+                                         mM-  y/   -dNN.+    .Ms  `Mm    oM: .md` +M/    hs .md.    ./   oM/    mm .dm-     ym. N`   /Nmm o    +M:                                            
+                                         NM- :hs.    /h./s/++o+  `+dd/` .yds. `sh+-/so++o/    :soo+os.  -ydy- `:hd:  :so+++o/ `/d+`   `oy ss/++s:                                             
+                                         dM:                                                                                                                                                  
+                                       -smdy:                                                                                                                                                 
+                                              
+                                                                                                                                                

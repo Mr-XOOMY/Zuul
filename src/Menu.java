@@ -77,10 +77,11 @@ public class Menu {
 
     public void music () {
         String[] items = {
-                "Sound Check",
                 "Theme Song",
                 "The Shire",
                 "The Misty Mountains Cold",
+                "The Adventure Begins 1",
+                "The Adventure Begins 2",
                 "Riddles in the Dark",
                 "Back"
         };

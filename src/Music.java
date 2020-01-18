@@ -20,11 +20,6 @@ public class Music {
 
     public void inputCommand(String command, String[] items) {
         switch (command) {
-            case "soundcheck":
-                soundCheck();
-                System.out.println(nowPlaying);
-                Item.itemObject.drawItems(items);
-                break;
             case "themesong":
                 themeSong();
                 if (Item.itemObject.currentLocationId.equals("music")) {
@@ -41,6 +36,20 @@ public class Music {
                 break;
             case "themistymountainscold":
                 theMistyMountainsCold();
+                if (Item.itemObject.currentLocationId.equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.itemObject.drawItems(items);
+                }
+                break;
+            case "theadventurebegins1":
+                theAdventureBegins1();
+                if (Item.itemObject.currentLocationId.equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.itemObject.drawItems(items);
+                }
+                break;
+            case "theadventurebegins2":
+                theAdventureBegins2();
                 if (Item.itemObject.currentLocationId.equals("music")) {
                     System.out.println(nowPlaying);
                     Item.itemObject.drawItems(items);
@@ -90,6 +99,22 @@ public class Music {
         getDevice().close();
         String songName = "The Misty Mountains Cold";
         String songLocation = "AudioFiles/themistymountainscold.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
+    public void theAdventureBegins1 (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "The Adventure Begins 1";
+        String songLocation = "AudioFiles/theadventurebegins1.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
+    public void theAdventureBegins2 (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "The Adventure Begins 2";
+        String songLocation = "AudioFiles/theadventurebegins2.wav";
         nowPlaying = playMusic(songLocation, songName);
     }
 

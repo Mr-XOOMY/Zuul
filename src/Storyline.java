@@ -83,6 +83,16 @@ public class Storyline {
         printStory(storyLocation);
     }
 
+    public void drawStory6(){
+        String storyLocation = "Story/story6.txt";
+        printStory(storyLocation);
+    }
+
+    public void drawStory7(){
+        String storyLocation = "Story/story7.txt";
+        printStory(storyLocation);
+    }
+
     public void printStory(String storyLocation){
         try {
             BufferedReader input = new BufferedReader(new FileReader(storyLocation));
