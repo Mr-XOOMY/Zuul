@@ -56,6 +56,16 @@ public class Art {
         printArt(artLocation);
     }
 
+    public void drawThorinOakenshield(){
+        String artLocation = "Art/thorinoakenshield.txt";
+        printArt(artLocation);
+    }
+
+    public void drawContract(){
+        String artLocation = "Art/contract.txt";
+        printArt(artLocation);
+    }
+
     public void drawSmeagol(){
         String artLocation = "Art/smeagol.txt";
         printArt(artLocation);

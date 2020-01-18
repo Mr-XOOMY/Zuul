@@ -91,8 +91,7 @@ public class Room {
         Music.musicObject.getDevice().close();
         Music.musicObject.theMistyMountainsCold();
         Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
-        // ASCII art of dwarf
-        Art.artObject.drawHobbitHole();
+        Art.artObject.drawThorinOakenshield();
         //Storyline.storyLineObject.drawStory2();
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
@@ -115,7 +114,7 @@ public class Room {
         Music.musicObject.getDevice().close();
         Music.musicObject.theAdventureBegins1();
         // ASCII art of contract
-        //Art.artObject.drawHobbitHole();
+        Art.artObject.drawContract();
         //Storyline.storyLineObject.drawStory3();
         Item.itemObject.drawItems(items);
         Countdown countDown = new Countdown();
