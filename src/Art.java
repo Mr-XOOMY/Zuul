@@ -66,6 +66,11 @@ public class Art {
         printArt(artLocation);
     }
 
+    public void drawLordElrond(){
+        String artLocation = "Art/lordelrond.txt";
+        printArt(artLocation);
+    }
+
     public void drawSmeagol(){
         String artLocation = "Art/smeagol.txt";
         printArt(artLocation);

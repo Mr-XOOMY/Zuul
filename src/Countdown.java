@@ -6,7 +6,7 @@ public class Countdown {
     int delay = 0;
 
     public void countDown(Countdown countDown, int delay) {
-        this.delay = delay;
+        this.delay = (delay - 1);
         countDown.timer.schedule(countDown.task, delay);
     }
 
@@ -15,7 +15,7 @@ public class Countdown {
         @Override
         public void run() {
             try {
-                Thread.sleep(delay);
+                Thread.sleep(1000);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }

@@ -113,12 +113,11 @@ public class Room {
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.theAdventureBegins1();
-        // ASCII art of contract
         Art.artObject.drawContract();
         //Storyline.storyLineObject.drawStory3();
         Item.itemObject.drawItems(items);
         Countdown countDown = new Countdown();
-        countDown.countDown(countDown, 5000);
+        countDown.countDown(countDown, 36000);
         Item.itemObject.inputItems(items, locationId, countDown);
     }
     public void inputCommandRoom3(String command) {
@@ -145,10 +144,8 @@ public class Room {
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.theAdventureBegins2();
-        // Gandalf geeft zwaard dus die word toegevoegd aan de inventory
         game.inventory[0] = "sword";
-        // ASCI art of elf
-        //Art.artObject.drawHobbitHole();
+        Art.artObject.drawLordElrond();
         //Storyline.storyLineObject.drawStory4();
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
