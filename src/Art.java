@@ -71,13 +71,18 @@ public class Art {
         printArt(artLocation);
     }
 
+    public void drawCave(){
+        String artLocation = "Art/cave.txt";
+        printArt(artLocation);
+    }
+
     public void drawSmeagol(){
         String artLocation = "Art/smeagol.txt";
         printArt(artLocation);
     }
 
-    public void drawMountain(){
-        String artLocation = "Art/hobbithole.txt";
+    public void drawSmaug(){
+        String artLocation = "Art/smaug.txt";
         printArt(artLocation);
     }
 

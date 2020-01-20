@@ -64,12 +64,12 @@ public class Room {
                 "Continue"
         };
         String locationId = "room1";
+        Art.artObject.drawHobbitHole();
+        Storyline.storyLineObject.drawStory1();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.theShire();
         Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
-        Art.artObject.drawHobbitHole();
-        Storyline.storyLineObject.drawStory1();
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -87,12 +87,12 @@ public class Room {
                 "Continue"
         };
         String locationId = "room2";
+        Art.artObject.drawThorinOakenshield();
+        Storyline.storyLineObject.drawStory2();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.theMistyMountainsCold();
         Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
-        Art.artObject.drawThorinOakenshield();
-        //Storyline.storyLineObject.drawStory2();
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -110,11 +110,11 @@ public class Room {
                 "No"
         };
         String locationId = "room3";
+        Art.artObject.drawContract();
+        Storyline.storyLineObject.drawStory3();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.theAdventureBegins1();
-        Art.artObject.drawContract();
-        //Storyline.storyLineObject.drawStory3();
         Item.itemObject.drawItems(items);
         Countdown countDown = new Countdown();
         countDown.countDown(countDown, 36000);
@@ -141,12 +141,13 @@ public class Room {
                 "Do Not Interact"
         };
         String locationId = "room4";
+        Art.artObject.drawLordElrond();
+        Storyline.storyLineObject.drawStory4();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.theAdventureBegins2();
+        Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
         game.inventory[0] = "sword";
-        Art.artObject.drawLordElrond();
-        //Storyline.storyLineObject.drawStory4();
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -191,12 +192,12 @@ public class Room {
                 "Explore Cave"
         };
         String locationId = "room5";
+        Art.artObject.drawCave();
+        Storyline.storyLineObject.drawStory5();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
-        // create song
-        // ASCII art of mointains/stonegiant
-        //Art.artObject.drawHobbitHole();
-        //Storyline.storyLineObject.drawStory5();
+        Music.musicObject.aThunderBattle();
+        Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -226,11 +227,19 @@ public class Room {
                 "Inspect Sound"
         };
         String locationId = "room6_1";
+        Art.artObject.drawSmeagol();
+        Storyline.storyLineObject.drawStory6();
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
+        Music.musicObject.smeagol();
+        try {
+            Thread.sleep(3100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.riddlesInTheDark();
-        Art.artObject.drawSmeagol();
-        //Storyline.storyLineObject.drawStory6();
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -296,6 +305,15 @@ public class Room {
     }
 
     public void room7(){
+        Art.artObject.drawSmaug();
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
+        Music.musicObject.smaug();
+        try {
+            Thread.sleep(16000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         game.checkItems();
         if (game.mapRead && game.sword && game.magicalring) {
             // use game-over function
