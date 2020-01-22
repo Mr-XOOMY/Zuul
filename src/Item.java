@@ -19,6 +19,7 @@ public class Item {
     }
 
     public void inputItems(String[] items, String locationId) {
+        long startTime = System.currentTimeMillis();
         setLocationId(locationId);
 
         //noinspection InfiniteLoopStatement
@@ -64,6 +65,15 @@ public class Item {
                     case "room2":
                         Room.game.inputCommandRoom2(inputCommand);
                         break;
+                    case "room3":
+                        long endTime = System.currentTimeMillis();
+                        if ((endTime - startTime) > 36000) {
+                            System.out.println(endTime);
+                            GameEnding.ending.GameEnding("countdown");
+                        }else {
+                            Room.game.inputCommandRoom3(inputCommand);
+                        }
+                        break;
                     case "room4":
                         Room.game.inputCommandRoom4(inputCommand);
                         break;
@@ -102,8 +112,7 @@ public class Item {
         }
     }
 
-    public void inputItems(String[] items, String locationId, Countdown countDown) {
-        setLocationId(locationId);
+    public void inputItems() {
 
         //noinspection InfiniteLoopStatement
         while (true) {
@@ -114,48 +123,10 @@ public class Item {
             System.out.println();
             boolean command = false;
 
-            for (String item : items) {
-                item = item.replaceAll("\\s+", "").toLowerCase();
-                if (inputCommand.equals(item)) {
-                    command = true;
-                    break;
-                }
-            }
-
-            if (command) {
-                switch (locationId) {
-                    case "room3":
-                        countDown.timer.cancel();
-                        Room.game.inputCommandRoom3(inputCommand);
-                        break;
-                }
-            } else {
-                if (inputCommand.equals("menu") || inputCommand.equals("map")) {
-                    CommandList.commandListObject.inputCommand(inputCommand, roomId);
-                }else {
-                    CommandList.commandListObject.invalid(items, locationId);
-                }
-            }
-        }
-    }
-
-    public void inputItems(Countdown countDown) {
-
-        //noinspection InfiniteLoopStatement
-        while (true) {
-            Scanner input = new Scanner(System.in);  // Create a Scanner object
-            System.out.print("> ");
-            String inputCommand = input.nextLine();
-            inputCommand = inputCommand.replaceAll("\\s+", "").toLowerCase();
-            System.out.println();
-
-            if (inputCommand.equals("menu")) {
-                countDown.timer.cancel();
-                Music.musicObject.getDevice().stop();
-                Music.musicObject.getDevice().close();
-                Item.itemObject.roomId = null;
-                Menu.menu.menu();
-            }
+            Music.musicObject.getDevice().stop();
+            Music.musicObject.getDevice().close();
+            Item.itemObject.roomId = null;
+            Menu.menu.menu();
         }
     }
 

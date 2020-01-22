@@ -1,6 +1,4 @@
 import javax.sound.sampled.Clip;
-import java.lang.reflect.Array;
-import java.security.PKCS12Attribute;
 
 public class Room {
 
@@ -116,9 +114,7 @@ public class Room {
         Music.musicObject.getDevice().close();
         Music.musicObject.theAdventureBegins1();
         Item.itemObject.drawItems(items);
-        Countdown timer = new Countdown();
-        timer.countDown(timer, 36000, "countdown");
-        Item.itemObject.inputItems(items, locationId, timer);
+        Item.itemObject.inputItems(items, locationId);
     }
     public void inputCommandRoom3(String command) {
         switch(command) {
