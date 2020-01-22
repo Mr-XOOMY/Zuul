@@ -171,6 +171,14 @@ public class Music {
         nowPlaying = playMusic(songLocation, songName);
     }
 
+    public void questFailed (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "Quest Failed";
+        String songLocation = "AudioFiles/questfailed.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
     public String playMusic (String musicLocation, String songName){
         try{
             File musicPath = new File(musicLocation);

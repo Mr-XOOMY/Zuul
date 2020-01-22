@@ -116,9 +116,9 @@ public class Room {
         Music.musicObject.getDevice().close();
         Music.musicObject.theAdventureBegins1();
         Item.itemObject.drawItems(items);
-        Countdown countDown = new Countdown();
-        countDown.countDown(countDown, 36000);
-        Item.itemObject.inputItems(items, locationId, countDown);
+        Countdown timer = new Countdown();
+        timer.countDown(timer, 36000, "countdown");
+        Item.itemObject.inputItems(items, locationId, timer);
     }
     public void inputCommandRoom3(String command) {
         switch(command) {
@@ -126,11 +126,7 @@ public class Room {
                 Room room4 = new Room("room4");
                 break;
             case "no":
-                // use game-over function
-                Music.musicObject.getDevice().stop();
-                Music.musicObject.getDevice().close();
-                Item.itemObject.roomId = null;
-                Menu.menu.menu();
+                GameEnding.ending.GameEnding("room3");
         }
     }
 
@@ -204,15 +200,7 @@ public class Room {
     public void inputCommandRoom5(String command){
         switch(command){
             case "followpath":
-                System.out.println("You attempted to follow the path, yet it was in vain. The bones of your miserable corpse were crushed to dust by the Stone Giants.");
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                // use game-over function
-                Item.itemObject.roomId = null;
-                Menu.menu.menu();
+                GameEnding.ending.GameEnding("room5");
                 break;
             case "explorecave":
                 System.out.println("While exploring the cave, you felt the earth disintegrate beneath your feet, and fell deep down into the core of the mountain.");
@@ -316,17 +304,13 @@ public class Room {
         }
         game.checkItems();
         if (game.mapRead && game.sword && game.magicalring) {
-            // use game-over function
-            System.out.println("You've completed the quest.");
+            GameEnding.ending.GameEnding("completed");
         }else if (!game.mapRead) {
-            // use game-over function
-            System.out.println("You didn't let Lord Elrond read the map so you could not find the secret entrance into Erobor. Quest FAILED!");
+            GameEnding.ending.GameEnding("elrond");
         } else if (!game.sword) {
-            // use game-over function
-            System.out.println("You dont have a sword to kill Smaug. Quest FAILED!");
+            GameEnding.ending.GameEnding("sword");
         }else {
-            // use game-over function
-            System.out.println("You could not get undetected around Smaug, if you only had something to make you invisibleplay. Quest FAILED!");
+            GameEnding.ending.GameEnding("ring");
         }
 
     }
