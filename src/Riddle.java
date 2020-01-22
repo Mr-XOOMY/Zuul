@@ -12,9 +12,20 @@ public class Riddle {
     }
 
     private void riddle1(){
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
+        Music.musicObject.riddle1();
         String riddleId = "riddle1";
         String riddleLocation = "Story/riddle1.txt";
         printRiddle(riddleLocation);
+        try {
+            Thread.sleep(14000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
+        Music.musicObject.riddlesInTheDark();
         Item.itemObject.inputItems(riddleId);
     }
 

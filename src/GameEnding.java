@@ -99,7 +99,7 @@ public class GameEnding {
         Storyline.storyLineObject.drawEndingCompleted();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
-        //Music.musicObject.questCompleted();
+        Music.musicObject.questCompleted();
         Item.itemObject.inputItems();
     }
 }

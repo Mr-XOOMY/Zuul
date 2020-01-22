@@ -254,12 +254,10 @@ public class Room {
                     }
                     break;
                 case "inspectsound":
-                    //initiate riddle function
                     Riddle riddle = new Riddle();
                     break;
             }
         }else {
-            //initiate riddle function
             Riddle riddle = new Riddle();
         }
     }

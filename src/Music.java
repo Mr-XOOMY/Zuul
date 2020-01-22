@@ -97,6 +97,27 @@ public class Music {
                     Item.itemObject.drawItems(items);
                 }
                 break;
+            case "riddle1":
+                riddle1();
+                if (Item.itemObject.currentLocationId.equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.itemObject.drawItems(items);
+                }
+                break;
+            case "riddle2":
+                riddle2();
+                if (Item.itemObject.currentLocationId.equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.itemObject.drawItems(items);
+                }
+                break;
+            case "riddle3":
+                riddle3();
+                if (Item.itemObject.currentLocationId.equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.itemObject.drawItems(items);
+                }
+                break;
             case "back":
                 getDevice().stop();
                 getDevice().close();
@@ -198,6 +219,30 @@ public class Music {
         getDevice().close();
         String songName = "Smeagol";
         String songLocation = "AudioFiles/smeagol.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
+    public void riddle1 (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "Riddle 1";
+        String songLocation = "AudioFiles/riddle1.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
+    public void riddle2 (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "Riddle 2";
+        String songLocation = "AudioFiles/riddle2.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
+    public void riddle3 (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "Riddle 3";
+        String songLocation = "AudioFiles/riddle3.wav";
         nowPlaying = playMusic(songLocation, songName);
     }
 

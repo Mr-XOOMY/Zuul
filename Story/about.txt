@@ -21,10 +21,12 @@
                                                           Framework                    Game                    External Files
                                                                                                                         
                                                            - Menu                       - Map                  - Audio Files
-                                                           - Audiosettings                                     - ASCII Art
-                                                           - Music                                             - Maps
-                                                           - About                          
+                                                           - Play                       - Countdown            - ASCII Art
+                                                           - Audiosettings              - Game Ending          - Maps
+                                                           - Music                      - Riddles   
+                                                           - About
                                                            - Quit
+                                                           - Back
 
 
                                                                           
@@ -33,10 +35,16 @@
                                                           Framework                    Game                    External Files
                                                                                                                         
                                                                                         - Art                  - Storylines
-                                                                                        - Storyline            
+                                                                                        - Storyline            - Riddles
                                                                                         - Countdown            
+                                                                                        - Riddles
                                                                                         - Room 1
                                                                                         - Room 2
+                                                                                        - Room 3
+                                                                                        - Room 4
+                                                                                        - Room 5
+                                                                                        - Room 6
+                                                                                        - Room 7
                                                                                         
 
                                                                                                       
@@ -49,6 +57,29 @@
                                          mM-  y/   -dNN.+    .Ms  `Mm    oM: .md` +M/    hs .md.    ./   oM/    mm .dm-     ym. N`   /Nmm o    +M:                                            
                                          NM- :hs.    /h./s/++o+  `+dd/` .yds. `sh+-/so++o/    :soo+os.  -ydy- `:hd:  :so+++o/ `/d+`   `oy ss/++s:                                             
                                          dM:                                                                                                                                                  
-                                       -smdy:                                                                                                                                                 
-                                              
-                                                                                                                                                
+                                       -smdy:
+
+                                             To play the game you only have to enter commands. These commands are shown on the screen.
+                                             The commands are not case sensitive and it does not matter whether there are spaces in front,
+                                             in or behind the command.
+
+                                             You can almost always invoke the following commands. These will not be displayed.
+
+                                                ********
+                                                *      *
+                                              - * Menu * The menu command will bring you back to the main menu.
+                                                *      *
+                                                ********
+
+                                                ********
+                                                *      *
+                                              - * Map  * The map command shows a map of Middle Earth and where you are at the moment.
+                                                *      *
+                                                ********
+
+                                                ********
+                                                *      *
+                                              - * Back * The back command will take you back to the previous screen.
+                                                *      *
+                                                ********
+

@@ -88,6 +88,9 @@ public class Menu {
                 "Quest Failed",
                 "Smaug",
                 "Smeagol",
+                "Riddle 1",
+                "Riddle 2",
+                "Riddle 3",
                 "Back"
         };
         String locationId = "music";
