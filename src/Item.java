@@ -139,6 +139,26 @@ public class Item {
         }
     }
 
+    public void inputItems(Countdown countDown) {
+
+        //noinspection InfiniteLoopStatement
+        while (true) {
+            Scanner input = new Scanner(System.in);  // Create a Scanner object
+            System.out.print("> ");
+            String inputCommand = input.nextLine();
+            inputCommand = inputCommand.replaceAll("\\s+", "").toLowerCase();
+            System.out.println();
+
+            if (inputCommand.equals("menu")) {
+                countDown.timer.cancel();
+                Music.musicObject.getDevice().stop();
+                Music.musicObject.getDevice().close();
+                Item.itemObject.roomId = null;
+                Menu.menu.menu();
+            }
+        }
+    }
+
     public void setLocationId (String locationId){
         if (previousLocationId == null) {
             previousLocationId = locationId;

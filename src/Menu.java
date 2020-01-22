@@ -82,7 +82,10 @@ public class Menu {
                 "The Misty Mountains Cold",
                 "The Adventure Begins 1",
                 "The Adventure Begins 2",
+                "A Thunder Battle",
                 "Riddles in the Dark",
+                "Smaug",
+                "Smeagol",
                 "Back"
         };
         String locationId = "music";

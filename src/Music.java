@@ -55,8 +55,29 @@ public class Music {
                     Item.itemObject.drawItems(items);
                 }
                 break;
+            case "athunderbattle":
+                aThunderBattle();
+                if (Item.itemObject.currentLocationId.equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.itemObject.drawItems(items);
+                }
+                break;
             case "riddlesinthedark":
                 riddlesInTheDark();
+                if (Item.itemObject.currentLocationId.equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.itemObject.drawItems(items);
+                }
+                break;
+            case "smaug":
+                smaug();
+                if (Item.itemObject.currentLocationId.equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.itemObject.drawItems(items);
+                }
+                break;
+            case "smeagol":
+                smeagol();
                 if (Item.itemObject.currentLocationId.equals("music")) {
                     System.out.println(nowPlaying);
                     Item.itemObject.drawItems(items);
@@ -118,11 +139,43 @@ public class Music {
         nowPlaying = playMusic(songLocation, songName);
     }
 
+    public void aThunderBattle (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "A Thunder Battle";
+        String songLocation = "AudioFiles/athunderbattle.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
     public void riddlesInTheDark (){
         getDevice().stop();
         getDevice().close();
         String songName = "Riddles in the Dark";
         String songLocation = "AudioFiles/riddlesinthedark.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
+    public void smaug (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "Smaug";
+        String songLocation = "AudioFiles/smaug.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
+    public void smeagol (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "Smeagol";
+        String songLocation = "AudioFiles/smeagol.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
+    public void questFailed (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "Quest Failed";
+        String songLocation = "AudioFiles/questfailed.wav";
         nowPlaying = playMusic(songLocation, songName);
     }
 

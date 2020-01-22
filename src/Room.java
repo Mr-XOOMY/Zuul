@@ -64,12 +64,12 @@ public class Room {
                 "Continue"
         };
         String locationId = "room1";
+        Art.artObject.drawHobbitHole();
+        Storyline.storyLineObject.drawStory1();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.theShire();
         Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
-        Art.artObject.drawHobbitHole();
-        Storyline.storyLineObject.drawStory1();
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -87,13 +87,12 @@ public class Room {
                 "Continue"
         };
         String locationId = "room2";
+        Art.artObject.drawThorinOakenshield();
+        Storyline.storyLineObject.drawStory2();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.theMistyMountainsCold();
         Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
-        // ASCII art of dwarf
-        Art.artObject.drawHobbitHole();
-        //Storyline.storyLineObject.drawStory2();
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -111,16 +110,15 @@ public class Room {
                 "No"
         };
         String locationId = "room3";
+        Art.artObject.drawContract();
+        Storyline.storyLineObject.drawStory3();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.theAdventureBegins1();
-        // ASCII art of contract
-        //Art.artObject.drawHobbitHole();
-        //Storyline.storyLineObject.drawStory3();
         Item.itemObject.drawItems(items);
-        Countdown countDown = new Countdown();
-        countDown.countDown(countDown, 5000);
-        Item.itemObject.inputItems(items, locationId, countDown);
+        Countdown timer = new Countdown();
+        timer.countDown(timer, 36000, "countdown");
+        Item.itemObject.inputItems(items, locationId, timer);
     }
     public void inputCommandRoom3(String command) {
         switch(command) {
@@ -128,11 +126,7 @@ public class Room {
                 Room room4 = new Room("room4");
                 break;
             case "no":
-                // use game-over function
-                Music.musicObject.getDevice().stop();
-                Music.musicObject.getDevice().close();
-                Item.itemObject.roomId = null;
-                Menu.menu.menu();
+                GameEnding.ending.GameEnding("room3");
         }
     }
 
@@ -143,14 +137,13 @@ public class Room {
                 "Do Not Interact"
         };
         String locationId = "room4";
+        Art.artObject.drawLordElrond();
+        Storyline.storyLineObject.drawStory4();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.theAdventureBegins2();
-        // Gandalf geeft zwaard dus die word toegevoegd aan de inventory
+        Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
         game.inventory[0] = "sword";
-        // ASCI art of elf
-        //Art.artObject.drawHobbitHole();
-        //Storyline.storyLineObject.drawStory4();
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -195,27 +188,19 @@ public class Room {
                 "Explore Cave"
         };
         String locationId = "room5";
+        Art.artObject.drawCave();
+        Storyline.storyLineObject.drawStory5();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
-        // create song
-        // ASCII art of mointains/stonegiant
-        //Art.artObject.drawHobbitHole();
-        //Storyline.storyLineObject.drawStory5();
+        Music.musicObject.aThunderBattle();
+        Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
     public void inputCommandRoom5(String command){
         switch(command){
             case "followpath":
-                System.out.println("You attempted to follow the path, yet it was in vain. The bones of your miserable corpse were crushed to dust by the Stone Giants.");
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                // use game-over function
-                Item.itemObject.roomId = null;
-                Menu.menu.menu();
+                GameEnding.ending.GameEnding("room5");
                 break;
             case "explorecave":
                 System.out.println("While exploring the cave, you felt the earth disintegrate beneath your feet, and fell deep down into the core of the mountain.");
@@ -230,11 +215,19 @@ public class Room {
                 "Inspect Sound"
         };
         String locationId = "room6_1";
+        Art.artObject.drawSmeagol();
+        Storyline.storyLineObject.drawStory6();
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
+        Music.musicObject.smeagol();
+        try {
+            Thread.sleep(3100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.riddlesInTheDark();
-        Art.artObject.drawSmeagol();
-        //Storyline.storyLineObject.drawStory6();
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -300,19 +293,24 @@ public class Room {
     }
 
     public void room7(){
+        Art.artObject.drawSmaug();
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
+        Music.musicObject.smaug();
+        try {
+            Thread.sleep(16000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         game.checkItems();
         if (game.mapRead && game.sword && game.magicalring) {
-            // use game-over function
-            System.out.println("You've completed the quest.");
+            GameEnding.ending.GameEnding("completed");
         }else if (!game.mapRead) {
-            // use game-over function
-            System.out.println("You didn't let Lord Elrond read the map so you could not find the secret entrance into Erobor. Quest FAILED!");
+            GameEnding.ending.GameEnding("elrond");
         } else if (!game.sword) {
-            // use game-over function
-            System.out.println("You dont have a sword to kill Smaug. Quest FAILED!");
+            GameEnding.ending.GameEnding("sword");
         }else {
-            // use game-over function
-            System.out.println("You could not get undetected around Smaug, if you only had something to make you invisibleplay. Quest FAILED!");
+            GameEnding.ending.GameEnding("ring");
         }
 
     }
