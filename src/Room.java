@@ -160,7 +160,7 @@ public class Room {
                 System.out.println("You have successfully persuaded Thorin to show the map to Lord Elrond, Lord of Rivendell, the only one who could translate the Moon runes on it.");
                 game.mapRead = true;
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(6000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -169,7 +169,7 @@ public class Room {
             case "donotinteract":
                 System.out.println("You chose not to interact, and followed the company of dwarves on their quest.");
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(6000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -255,12 +255,12 @@ public class Room {
                     break;
                 case "inspectsound":
                     //initiate riddle function
-                    Room room7 = new Room("room7");
+                    Riddle riddle = new Riddle();
                     break;
             }
         }else {
             //initiate riddle function
-            Room room6 = new Room("room7");
+            Riddle riddle = new Riddle();
         }
     }
 
@@ -289,12 +289,18 @@ public class Room {
     }
 
     public void room7(){
-        Art.artObject.drawSmaug();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
+        Storyline.storyLineObject.drawStory7();
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Art.artObject.drawSmaug();
         Music.musicObject.smaug();
         try {
-            Thread.sleep(16000);
+            Thread.sleep(17000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -311,6 +317,7 @@ public class Room {
 
     }
 
+    /*
     public void inputCommandRoom7(String command){
         switch(command){
             case "continue":
@@ -319,4 +326,6 @@ public class Room {
                 break;
         }
     }
+
+     */
 }

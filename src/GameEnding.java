@@ -13,6 +13,9 @@ public class GameEnding {
             case "room5":
                 endingRoom5();
                 break;
+            case "smeagol":
+                endingSmeagol();
+                break;
             case "elrond":
                 endingElrond();
                 break;
@@ -29,8 +32,8 @@ public class GameEnding {
     }
 
     private void endingRoom3 () {
-        System.out.println("You are a coward and you should be ashamed of pulling back to your hobbit hole!");
-        System.out.println("Press Enter to continue");
+        Art.artObject.drawQuestFailed();
+        Storyline.storyLineObject.drawEndingRoom3();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.questFailed();
@@ -38,8 +41,8 @@ public class GameEnding {
     }
 
     private void endingCountDown () {
-        System.out.println("You were to late with your decision and the dwarves are long long gone. You should have joined them earlier coward!");
-        System.out.println("Press Enter to continue");
+        Art.artObject.drawQuestFailed();
+        Storyline.storyLineObject.drawEndingCountDown();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.questFailed();
@@ -47,8 +50,8 @@ public class GameEnding {
     }
 
     private void endingRoom5 () {
-        System.out.println("You attempted to follow the path, yet it was in vain. The bones of your miserable corpse were crushed to dust by the Stone Giants.");
-        System.out.println("Press Enter to continue");
+        Art.artObject.drawQuestFailed();
+        Storyline.storyLineObject.drawEndingRoom5();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.questFailed();
@@ -56,8 +59,8 @@ public class GameEnding {
     }
 
     private void endingSmeagol () {
-        System.out.println("You were feasted on by smeagol because you failed to correctly answer the riddles!.");
-        System.out.println("Press Enter to continue");
+        Art.artObject.drawQuestFailed();
+        Storyline.storyLineObject.drawEndingSmeagol();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.questFailed();
@@ -65,8 +68,8 @@ public class GameEnding {
     }
 
     private void endingElrond () {
-        System.out.println("You didn't let Lord Elrond read the map so you could not find the secret entrance into Erobor. Quest FAILED!");
-        System.out.println("Press Enter to continue");
+        Art.artObject.drawQuestFailed();
+        Storyline.storyLineObject.drawEndingElrond();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.questFailed();
@@ -74,8 +77,8 @@ public class GameEnding {
     }
 
     private void endingSword () {
-        System.out.println("You dont have a sword to kill Smaug. Quest FAILED!");
-        System.out.println("Press Enter to continue");
+        Art.artObject.drawQuestFailed();
+        Storyline.storyLineObject.drawEndingSword();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.questFailed();
@@ -83,8 +86,8 @@ public class GameEnding {
     }
 
     private void endingRing () {
-        System.out.println("You could not get undetected around Smaug, if you only had something to make you invisible. Quest FAILED!");
-        System.out.println("Press Enter to continue");
+        Art.artObject.drawQuestFailed();
+        Storyline.storyLineObject.drawEndingRing();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.questFailed();
@@ -92,11 +95,11 @@ public class GameEnding {
     }
 
     private void endingCompleted () {
-        System.out.println("You killed the dragon Smaug en retrieved the Arkenstone. You've completed the quest.");
-        System.out.println("Press Enter to continue");
+        Art.artObject.drawQuestCompleted();
+        Storyline.storyLineObject.drawEndingCompleted();
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
-        Music.musicObject.questFailed();
+        //Music.musicObject.questCompleted();
         Item.itemObject.inputItems();
     }
 }

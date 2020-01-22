@@ -86,6 +86,16 @@ public class Art {
         printArt(artLocation);
     }
 
+    public void drawQuestFailed(){
+        String artLocation = "Art/questfailed.txt";
+        printArt(artLocation);
+    }
+
+    public void drawQuestCompleted(){
+        String artLocation = "Art/questcompleted.txt";
+        printArt(artLocation);
+    }
+
     public void printArt(String artLocation){
         try {
             BufferedReader input = new BufferedReader(new FileReader(artLocation));

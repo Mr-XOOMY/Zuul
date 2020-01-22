@@ -84,6 +84,8 @@ public class Menu {
                 "The Adventure Begins 2",
                 "A Thunder Battle",
                 "Riddles in the Dark",
+                "Quest Completed",
+                "Quest Failed",
                 "Smaug",
                 "Smeagol",
                 "Back"

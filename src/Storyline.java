@@ -93,6 +93,46 @@ public class Storyline {
         printStory(storyLocation);
     }
 
+    public void drawEndingRoom3(){
+        String storyLocation = "Story/endingcountdown.txt";
+        printStory(storyLocation);
+    }
+
+    public void drawEndingCountDown(){
+        String storyLocation = "Story/endingcountdown.txt";
+        printStory(storyLocation);
+    }
+
+    public void drawEndingRoom5(){
+        String storyLocation = "Story/endingroom5.txt";
+        printStory(storyLocation);
+    }
+
+    public void drawEndingSmeagol(){
+        String storyLocation = "Story/endingsmeagol.txt";
+        printStory(storyLocation);
+    }
+
+    public void drawEndingElrond(){
+        String storyLocation = "Story/endingelrond.txt";
+        printStory(storyLocation);
+    }
+
+    public void drawEndingSword(){
+        String storyLocation = "Story/endingsword.txt";
+        printStory(storyLocation);
+    }
+
+    public void drawEndingRing(){
+        String storyLocation = "Story/endingring.txt";
+        printStory(storyLocation);
+    }
+
+    public void drawEndingCompleted(){
+        String storyLocation = "Story/endingcompleted.txt";
+        printStory(storyLocation);
+    }
+
     public void printStory(String storyLocation){
         try {
             BufferedReader input = new BufferedReader(new FileReader(storyLocation));

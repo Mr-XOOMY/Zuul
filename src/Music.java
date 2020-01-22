@@ -69,6 +69,20 @@ public class Music {
                     Item.itemObject.drawItems(items);
                 }
                 break;
+            case "questcompleted":
+                questCompleted();
+                if (Item.itemObject.currentLocationId.equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.itemObject.drawItems(items);
+                }
+                break;
+            case "questfailed":
+                questFailed();
+                if (Item.itemObject.currentLocationId.equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.itemObject.drawItems(items);
+                }
+                break;
             case "smaug":
                 smaug();
                 if (Item.itemObject.currentLocationId.equals("music")) {
@@ -155,6 +169,22 @@ public class Music {
         nowPlaying = playMusic(songLocation, songName);
     }
 
+    public void questCompleted (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "Quest Completed";
+        String songLocation = "AudioFiles/questcompleted.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+    
+    public void questFailed (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "Quest Failed";
+        String songLocation = "AudioFiles/questfailed.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
     public void smaug (){
         getDevice().stop();
         getDevice().close();
@@ -168,14 +198,6 @@ public class Music {
         getDevice().close();
         String songName = "Smeagol";
         String songLocation = "AudioFiles/smeagol.wav";
-        nowPlaying = playMusic(songLocation, songName);
-    }
-
-    public void questFailed (){
-        getDevice().stop();
-        getDevice().close();
-        String songName = "Quest Failed";
-        String songLocation = "AudioFiles/questfailed.wav";
         nowPlaying = playMusic(songLocation, songName);
     }
 

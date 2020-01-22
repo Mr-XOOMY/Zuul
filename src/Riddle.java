@@ -5,19 +5,20 @@ public class Riddle {
 
     public Riddle(){
         riddle1();
-        riddle2();
-        riddle3();
-        riddle4();
-        riddle5();
+        //riddle2();
+        //riddle3();
+        //riddle4();
+        //riddle5();
     }
 
     private void riddle1(){
+        String riddleId = "riddle1";
         String riddleLocation = "Story/riddle1.txt";
         printRiddle(riddleLocation);
-        Item.itemObject.inputItems(items, locationId);
-
+        Item.itemObject.inputItems(riddleId);
     }
 
+    /*
     public void inputCommandRiddle1 (String command){
         if(command != "mountain"){
             // Game Ending
@@ -68,6 +69,8 @@ public class Riddle {
         }
     }
 
+     */
+
     public void printRiddle(String riddleLocation){
         try {
             BufferedReader input = new BufferedReader(new FileReader(riddleLocation));
@@ -82,6 +85,4 @@ public class Riddle {
             System.out.println("Riddle could not be printed.");
         }
     }
-
-
 }
