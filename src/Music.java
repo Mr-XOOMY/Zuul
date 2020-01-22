@@ -176,7 +176,7 @@ public class Music {
         String songLocation = "AudioFiles/questcompleted.wav";
         nowPlaying = playMusic(songLocation, songName);
     }
-    
+
     public void questFailed (){
         getDevice().stop();
         getDevice().close();
