@@ -250,11 +250,11 @@ public class Room {
                     }
                     break;
                 case "inspectsound":
-                    Riddle riddle = new Riddle();
+                    Riddle.riddle.riddle1();
                     break;
             }
         }else {
-            Riddle riddle = new Riddle();
+            Riddle.riddle.riddle1();
         }
     }
 
