@@ -5,7 +5,7 @@ public class Riddle {
 
     static Riddle riddle = new Riddle();
 
-    private void riddle1(){
+    public void riddle1(){
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.riddle1();
@@ -25,7 +25,7 @@ public class Riddle {
 
 
 
-    private void riddle2(){
+    public void riddle2(){
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.riddle2();
@@ -43,7 +43,7 @@ public class Riddle {
         Item.itemObject.inputItems(riddleId);
     }
 
-     private void riddle3(){
+     public void riddle3(){
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
         Music.musicObject.riddle3();
