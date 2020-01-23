@@ -2,7 +2,7 @@ public class GameEnding {
 
     static GameEnding ending = new GameEnding();
 
-    public void GameEnding (String ending) {
+    public void ending (String ending) {
         switch (ending) {
             case "room3":
                 endingRoom3();

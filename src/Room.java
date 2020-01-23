@@ -73,10 +73,8 @@ public class Room {
     }
 
     public void inputCommandRoom1 (String command){
-        switch(command){
-            case "continue":
-                Room room2 = new Room("room2");
-                break;
+        if ("continue".equals(command)) {
+            Room room2 = new Room("room2");
         }
     }
 
@@ -96,10 +94,8 @@ public class Room {
     }
 
     public void inputCommandRoom2(String command){
-        switch(command){
-            case "continue":
-                Room room3 = new Room("room3");
-                break;
+        if ("continue".equals(command)) {
+            Room room3 = new Room("room3");
         }
     }
     public void room3(){
@@ -122,7 +118,7 @@ public class Room {
                 Room room4 = new Room("room4");
                 break;
             case "no":
-                GameEnding.ending.GameEnding("room3");
+                GameEnding.ending.ending("room3");
         }
     }
 
@@ -196,7 +192,7 @@ public class Room {
     public void inputCommandRoom5(String command){
         switch(command){
             case "followpath":
-                GameEnding.ending.GameEnding("room5");
+                GameEnding.ending.ending("room5");
                 break;
             case "explorecave":
                 System.out.println("While exploring the cave, you felt the earth disintegrate beneath your feet, and fell deep down into the core of the mountain.");
@@ -304,13 +300,13 @@ public class Room {
         }
         game.checkItems();
         if (game.mapRead && game.sword && game.magicalring) {
-            GameEnding.ending.GameEnding("completed");
+            GameEnding.ending.ending("completed");
         }else if (!game.mapRead) {
-            GameEnding.ending.GameEnding("elrond");
+            GameEnding.ending.ending("elrond");
         } else if (!game.sword) {
-            GameEnding.ending.GameEnding("sword");
+            GameEnding.ending.ending("sword");
         }else {
-            GameEnding.ending.GameEnding("ring");
+            GameEnding.ending.ending("ring");
         }
 
     }
