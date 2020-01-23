@@ -126,6 +126,7 @@ public class Item {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
+                        Riddle.riddle.riddle2();
                     } else {
                         GameEnding.ending.ending("smeagol");
                     }
@@ -137,7 +138,7 @@ public class Item {
                             Thread.sleep(2000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
-                        }
+                        }Riddle.riddle.riddle3();
                     } else {
                         GameEnding.ending.ending("smeagol");
                     }
