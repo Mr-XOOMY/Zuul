@@ -3,13 +3,7 @@ import java.io.FileReader;
 
 public class Riddle {
 
-    public Riddle(){
-        riddle1();
-        //riddle2();
-        //riddle3();
-        //riddle4();
-        //riddle5();
-    }
+    static Riddle riddle = new Riddle();
 
     private void riddle1(){
         Music.musicObject.getDevice().stop();
@@ -29,58 +23,43 @@ public class Riddle {
         Item.itemObject.inputItems(riddleId);
     }
 
-    /*
-    public void inputCommandRiddle1 (String command){
-        if(command != "mountain"){
-            // Game Ending
-        }
-    }
+
 
     private void riddle2(){
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
+        Music.musicObject.riddle2();
+        String riddleId = "riddle2";
         String riddleLocation = "Story/riddle2.txt";
         printRiddle(riddleLocation);
-    }
-
-    public void inputCommandRiddle2(String command){
-        if(command != "wind"){
-            // Game Ending
+        try{
+            Thread.sleep(14000);
+        } catch(InterruptedException e){
+            e.printStackTrace();
         }
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
+        Music.musicObject.riddlesInTheDark();
+        Item.itemObject.inputItems(riddleId);
     }
 
-    private void riddle3(){
+     private void riddle3(){
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
+        Music.musicObject.riddle3();
+        String riddleId = "riddle3";
         String riddleLocation = "Story/riddle3.txt";
         printRiddle(riddleLocation);
-    }
-
-    public void inputCommandRiddle3(String command){
-        if(command != "dark"){
-//            Game Ending
+        try {
+            Thread.sleep(18000);
+        } catch (InterruptedException e){
+            e.printStackTrace();
         }
+         Music.musicObject.getDevice().stop();
+         Music.musicObject.getDevice().close();
+         Music.musicObject.riddlesInTheDark();
+         Item.itemObject.inputItems(riddleId);
     }
-
-    private void riddle4(){
-        String riddleLocation = "Story/riddle4.txt";
-        printRiddle(riddleLocation);
-    }
-
-    public void inputCommandRiddle4(String command){
-        if(command != "fish"){
-//            Game Ending
-        }
-    }
-
-    private void riddle5(){
-        String riddleLocation = "Story/riddle5.txt";
-        printRiddle(riddleLocation);
-    }
-
-    public void inputCommandRiddle5(String command){
-        if(command != "time"){
-//            Game Ending
-        }
-    }
-
-     */
 
     public void printRiddle(String riddleLocation){
         try {
