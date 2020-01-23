@@ -84,9 +84,6 @@ public class Item {
                     case "room6_2":
                         Room.game.inputCommandRoom6_2(inputCommand);
                         break;
-                    //case "room7":
-                    //    Room.game.inputCommandRoom7(inputCommand);
-                    //    break;
                 }
             } else {
                 if (inputCommand.equals("menu") || inputCommand.equals("map")) {
@@ -129,7 +126,6 @@ public class Item {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        Room room7 = new Room("room7");
                     } else {
                         GameEnding.ending.ending("smeagol");
                     }
@@ -142,38 +138,11 @@ public class Item {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        Room room7 = new Room("room7");
                     } else {
                         GameEnding.ending.ending("smeagol");
                     }
                     break;
                 case "riddle3":
-                    if (inputCommand.equals("dark")) {
-                        System.out.println("Your answer is correct!");
-                        try {
-                            Thread.sleep(2000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        Room room7 = new Room("room7");
-                    } else {
-                        GameEnding.ending.ending("smeagol");
-                    }
-                    break;
-                case "riddle4":
-                    if (inputCommand.equals("fish")) {
-                        System.out.println("Your answer is correct!");
-                        try {
-                            Thread.sleep(2000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        Room room7 = new Room("room7");
-                    } else {
-                        GameEnding.ending.ending("smeagol");
-                    }
-                    break;
-                case "riddle5":
                     if (inputCommand.equals("time")) {
                         System.out.println("Your answer is correct!");
                         try {
