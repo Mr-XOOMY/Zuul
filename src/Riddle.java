@@ -23,8 +23,6 @@ public class Riddle {
         Item.itemObject.inputItems(riddleId);
     }
 
-
-
     public void riddle2(){
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
