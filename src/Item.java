@@ -151,6 +151,7 @@ public class Item {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
+                        //noinspection unused
                         Room room7 = new Room("room7");
                     } else {
                         GameEnding.ending.ending("smeagol");
@@ -166,6 +167,7 @@ public class Item {
         while (true) {
             Scanner input = new Scanner(System.in);  // Create a Scanner object
             System.out.print("> ");
+            //noinspection unused
             String inputCommand = input.nextLine();
 
             Music.musicObject.getDevice().stop();
