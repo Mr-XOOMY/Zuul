@@ -2,7 +2,7 @@ public class GameEnding {
 
     static GameEnding ending = new GameEnding();
 
-    public void GameEnding (String ending) {
+    public void ending (String ending) {
         switch (ending) {
             case "room3":
                 endingRoom3();
@@ -59,6 +59,14 @@ public class GameEnding {
     }
 
     private void endingSmeagol () {
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
+        Music.musicObject.feastingSmeagol();
+        try {
+            Thread.sleep(7000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Art.artObject.drawQuestFailed();
         Storyline.storyLineObject.drawEndingSmeagol();
         Music.musicObject.getDevice().stop();

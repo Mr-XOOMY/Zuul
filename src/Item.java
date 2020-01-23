@@ -51,13 +51,11 @@ public class Item {
                         Music.musicObject.inputCommand(inputCommand, items);
                         break;
                     case "about":
+                    case "map":
                         CommandList.commandListObject.inputCommand(inputCommand, roomId);
                         break;
                     case "quit":
                         Quit.quitObject.inputCommand(inputCommand);
-                        break;
-                    case "map":
-                        CommandList.commandListObject.inputCommand(inputCommand, roomId);
                         break;
                     case "room1":
                         Room.game.inputCommandRoom1(inputCommand);
@@ -69,7 +67,7 @@ public class Item {
                         long endTime = System.currentTimeMillis();
                         if ((endTime - startTime) > 36000) {
                             System.out.println(endTime);
-                            GameEnding.ending.GameEnding("countdown");
+                            GameEnding.ending.ending("countdown");
                         }else {
                             Room.game.inputCommandRoom3(inputCommand);
                         }
@@ -133,7 +131,7 @@ public class Item {
                         }
                         Room room7 = new Room("room7");
                     } else {
-                        GameEnding.ending.GameEnding("smeagol");
+                        GameEnding.ending.ending("smeagol");
                     }
                     break;
                 case "riddle2":
@@ -146,7 +144,7 @@ public class Item {
                         }
                         Room room7 = new Room("room7");
                     } else {
-                        GameEnding.ending.GameEnding("smeagol");
+                        GameEnding.ending.ending("smeagol");
                     }
                     break;
                 case "riddle3":
@@ -159,7 +157,7 @@ public class Item {
                         }
                         Room room7 = new Room("room7");
                     } else {
-                        GameEnding.ending.GameEnding("smeagol");
+                        GameEnding.ending.ending("smeagol");
                     }
                     break;
                 case "riddle4":
@@ -172,7 +170,7 @@ public class Item {
                         }
                         Room room7 = new Room("room7");
                     } else {
-                        GameEnding.ending.GameEnding("smeagol");
+                        GameEnding.ending.ending("smeagol");
                     }
                     break;
                 case "riddle5":
@@ -185,7 +183,7 @@ public class Item {
                         }
                         Room room7 = new Room("room7");
                     } else {
-                        GameEnding.ending.GameEnding("smeagol");
+                        GameEnding.ending.ending("smeagol");
                     }
                     break;
             }
@@ -199,9 +197,6 @@ public class Item {
             Scanner input = new Scanner(System.in);  // Create a Scanner object
             System.out.print("> ");
             String inputCommand = input.nextLine();
-            inputCommand = inputCommand.replaceAll("\\s+", "").toLowerCase();
-            System.out.println();
-            boolean command = false;
 
             Music.musicObject.getDevice().stop();
             Music.musicObject.getDevice().close();
@@ -215,31 +210,18 @@ public class Item {
     public void setLocationId (String locationId){
         if (previousLocationId == null) {
             previousLocationId = locationId;
-            currentLocationId = locationId;
         }else {
             previousLocationId = currentLocationId;
-            currentLocationId = locationId;
         }
+        currentLocationId = locationId;
 
         switch (locationId){
             case "room1":
-                roomId = locationId;
-                break;
             case "room2":
-                roomId = locationId;
-                break;
             case "room3":
-                roomId = locationId;
-                break;
             case "room4":
-                roomId = locationId;
-                break;
             case "room5":
-                roomId = locationId;
-                break;
             case "room6":
-                roomId = locationId;
-                break;
             case "room7":
                 roomId = locationId;
                 break;

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BilbosQuest:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/BilbosQuest_jar</output-path>
+    <root id="archive" name="BilbosQuest.jar">
+      <element id="module-output" name="BilbosQuest" />
+    </root>
+  </artifact>
+</component>

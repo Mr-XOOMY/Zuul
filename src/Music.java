@@ -97,6 +97,13 @@ public class Music {
                     Item.itemObject.drawItems(items);
                 }
                 break;
+            case "feastingsmeagol":
+                feastingSmeagol();
+                if (Item.itemObject.currentLocationId.equals("music")) {
+                    System.out.println(nowPlaying);
+                    Item.itemObject.drawItems(items);
+                }
+                break;
             case "riddle1":
                 riddle1();
                 if (Item.itemObject.currentLocationId.equals("music")) {
@@ -219,6 +226,14 @@ public class Music {
         getDevice().close();
         String songName = "Smeagol";
         String songLocation = "AudioFiles/smeagol.wav";
+        nowPlaying = playMusic(songLocation, songName);
+    }
+
+    public void feastingSmeagol (){
+        getDevice().stop();
+        getDevice().close();
+        String songName = "Feasting Smeagol";
+        String songLocation = "AudioFiles/feastingsmeagol.wav";
         nowPlaying = playMusic(songLocation, songName);
     }
 

@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="Zuul:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/Zuul_jar</output-path>
-    <root id="archive" name="Zuul.jar">
-      <element id="module-output" name="Zuul" />
-    </root>
-  </artifact>
-</component>
