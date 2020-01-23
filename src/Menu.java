@@ -88,6 +88,7 @@ public class Menu {
                 "Quest Failed",
                 "Smaug",
                 "Smeagol",
+                "Feasting Smeagol",
                 "Riddle 1",
                 "Riddle 2",
                 "Riddle 3",

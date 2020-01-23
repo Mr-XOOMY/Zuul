@@ -59,6 +59,14 @@ public class GameEnding {
     }
 
     private void endingSmeagol () {
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
+        Music.musicObject.feastingSmeagol();
+        try {
+            Thread.sleep(7000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Art.artObject.drawQuestFailed();
         Storyline.storyLineObject.drawEndingSmeagol();
         Music.musicObject.getDevice().stop();

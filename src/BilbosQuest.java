@@ -1,4 +1,4 @@
-public class Zuul{
+public class BilbosQuest {
 
     public static void main(String[] args) {
         start();
