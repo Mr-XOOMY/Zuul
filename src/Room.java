@@ -336,7 +336,7 @@ public class Room {
         String locationId = "room7";
         Storyline.storyLineObject.drawStory(locationId);
         try {
-            Thread.sleep(6000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
