@@ -93,7 +93,32 @@ public class Item {
                         break;
                 }
             } else {
-                if (inputCommand.equals("menu") || inputCommand.equals("map")) {
+                if (inputCommand.equals("menu")) {
+                    switch (currentLocationId) {
+                        case "menu":
+                        case "soundsettings":
+                        case "music":
+                        case "about":
+                        case "quit":
+                        case "room3":
+                        case "room6_2":
+                            CommandList.commandListObject.invalid(items, locationId);
+                            break;
+                        case "room1":
+                        case "room2":
+                        case "room4":
+                        case "room5":
+                        case "room6":
+                        case "room6_1":
+                            Music.musicObject.getDevice().stop();
+                            Music.musicObject.getDevice().close();
+                            CommandList.commandListObject.inputCommand(inputCommand, roomId);
+                        default:
+                            Music.musicObject.getDevice().stop();
+                            Music.musicObject.getDevice().close();
+                            CommandList.commandListObject.inputCommand(inputCommand, roomId);
+                    }
+                } else if (inputCommand.equals("map")) {
                     switch (currentLocationId) {
                         case "menu":
                         case "soundsettings":
@@ -116,7 +141,7 @@ public class Item {
                             Music.musicObject.getDevice().close();
                             CommandList.commandListObject.inputCommand(inputCommand, roomId);
                     }
-                }else {
+                } else {
                     CommandList.commandListObject.invalid(items, locationId);
                 }
             }
