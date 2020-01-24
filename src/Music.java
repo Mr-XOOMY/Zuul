@@ -18,6 +18,11 @@ public class Music {
         }
     }
 
+    /**
+     *
+     * @param command String which contains a value for the switch case to call the correct method.
+     * @param items Array[] with the possible commands a user can give.
+     */
     public void inputCommand(String command, String[] items) {
         switch (command) {
             case "themesong":
@@ -261,6 +266,12 @@ public class Music {
         nowPlaying = playMusic(songLocation, songName);
     }
 
+    /**
+     *
+     * @param musicLocation String with the location of the music.wav file, which is being read by a BufferedReader and prints it contents line for line to the terminal.
+     * @param songName String which contains the name of the song.
+     * @return Returns a String which says what song is currently being played or that it can't play the song.
+     */
     public String playMusic (String musicLocation, String songName){
         try{
             File musicPath = new File(musicLocation);

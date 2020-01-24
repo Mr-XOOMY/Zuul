@@ -2,6 +2,10 @@ public class GameEnding {
 
     static GameEnding ending = new GameEnding();
 
+    /**
+     *
+     * @param ending String which contains a value for the switch case to call the correct method.
+     */
     public void ending (String ending) {
         switch (ending) {
             case "room3":

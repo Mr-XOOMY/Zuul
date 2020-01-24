@@ -23,9 +23,9 @@
                                                            - Menu                       - Map                  - Audio Files
                                                            - Play                       - Countdown            - ASCII Art
                                                            - Audiosettings              - Game Ending          - Maps
-                                                           - Music                      - Riddles   
-                                                           - About
-                                                           - Quit
+                                                           - Music                      - Riddles              - Quick Start Guide
+                                                           - About                                             - Github README
+                                                           - Quit                                              - javadoc
                                                            - Back
 
 
@@ -36,7 +36,7 @@
                                                                                                                         
                                                                                         - Art                  - Storylines
                                                                                         - Storyline            - Riddles
-                                                                                        - Countdown            
+                                                                                        - Countdown            - Technical notes
                                                                                         - Riddles
                                                                                         - Room 1
                                                                                         - Room 2

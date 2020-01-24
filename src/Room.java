@@ -15,6 +15,10 @@ public class Room {
     public Room(){
     }
 
+    /**
+     *
+     * @param roomId String which contains a value for the switch case to call the correct method.
+     */
     public Room(String roomId){
         switch (roomId) {
             case "room1":
@@ -54,18 +58,34 @@ public class Room {
         }
     }
 
+    /**
+     *
+     * @return Return a true or false value for firstRunRoom4.
+     */
     public boolean getFirstRunRoom4(){
         return firstRunRoom4;
     }
 
+    /**
+     *
+     * @return Return a true or false value for firstRun1Room6.
+     */
     public boolean getFirstRun1Room6(){
         return firstRun1Room6;
     }
 
+    /**
+     *
+     * @return Return a true or false value for firstRun2Room6.
+     */
     public boolean getFirstRun2Room6(){
         return firstRun2Room6;
     }
 
+    /**
+     *
+     * @return Return a true or false value for firstRunRoom6_1.
+     */
     public boolean getFirstRunRoom6_1(){
         return firstRunRoom6_1;
     }
@@ -85,6 +105,10 @@ public class Room {
         Item.itemObject.inputItems(items, locationId);
     }
 
+    /**
+     *
+     * @param command String which contains a command given by the user.
+     */
     public void inputCommandRoom1 (String command){
         if ("continue".equals(command)) {
             Room room2 = new Room("room2");
@@ -106,6 +130,10 @@ public class Room {
         Item.itemObject.inputItems(items, locationId);
     }
 
+    /**
+     *
+     * @param command String which contains a command given by the user.
+     */
     public void inputCommandRoom2(String command){
         if ("continue".equals(command)) {
             Room room3 = new Room("room3");
@@ -126,6 +154,11 @@ public class Room {
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
+
+    /**
+     *
+     * @param command String which contains a command given by the user.
+     */
     public void inputCommandRoom3(String command) {
         switch(command) {
             case "yes":
@@ -166,6 +199,10 @@ public class Room {
 
     }
 
+    /**
+     *
+     * @param command String which contains a command given by the user.
+     */
     public void inputCommandRoom4(String command){
         game.firstRunRoom4 = false;
         Room room5;
@@ -222,6 +259,11 @@ public class Room {
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
+
+    /**
+     *
+     * @param command String which contains a command given by the user.
+     */
     public void inputCommandRoom5(String command){
         switch(command){
             case "followpath":
@@ -273,6 +315,11 @@ public class Room {
         }
 
     }
+
+    /**
+     *
+     * @param command String which contains a command given by the user.
+     */
     public void inputCommandRoom6_1 (String command){
         game.firstRun1Room6 = false;
         if (game.getFirstRunRoom6_1()){
@@ -308,6 +355,10 @@ public class Room {
         }
     }
 
+    /**
+     *
+     * @param command String which contains a command given by the user.
+     */
     public void inputCommandRoom6_2(String command){
         game.firstRunRoom6_1 = false;
         String[] items = {

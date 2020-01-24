@@ -24,6 +24,11 @@ public class Audiosettings {
         info = audioDevice.get(deviceNumber);
     }
 
+    /**
+     *
+     * @param command String with the current command given by the user.
+     * @param items Array[] with the possible commands a user can give.
+     */
     public void inputCommand(String command, String[] items){
         switch (command) {
             case "change":
@@ -66,6 +71,10 @@ public class Audiosettings {
                 "When you don't hear the test audio track, please check if you have turned up your volume and please try the setup again or reset the changes to the default audio device."+System.lineSeparator());
     }
 
+    /**
+     *
+     * @param deviceNumber A number which correspondents to an audiodevice.
+     */
     public void reset(int deviceNumber){
         audioSettingsObject.setAudioDevice(deviceNumber);
     }
@@ -76,6 +85,10 @@ public class Audiosettings {
         System.out.println("You have chosen audio device, "+(deviceNumber+1)+") "+info.getDescription()+System.lineSeparator());
     }
 
+    /**
+     *
+     * @param deviceNumber A number which correspondents to an audiodevice.
+     */
     public void setAudioDevice(int deviceNumber){
         info = audioDevice.get(deviceNumber);
     }

@@ -59,6 +59,10 @@ public class Riddle {
          Item.itemObject.inputItems(riddleId);
     }
 
+    /**
+     *
+     * @param riddleLocation String with the location of the riddle.txt file, which is being read by a BufferedReader and prints it contents line for line to the terminal.
+     */
     public void printRiddle(String riddleLocation){
         try {
             BufferedReader input = new BufferedReader(new FileReader(riddleLocation));

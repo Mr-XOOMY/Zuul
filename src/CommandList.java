@@ -5,6 +5,11 @@ public class CommandList {
     public CommandList(){
     }
 
+    /**
+     *
+     * @param command String which contains a value for the switch case to call the correct method.
+     * @param roomId String which contains the current roomId.
+     */
     public void inputCommand(String command, String roomId){
         switch (command) {
             case "menu":
@@ -19,6 +24,12 @@ public class CommandList {
         }
     }
 
+    /**
+     *
+     * @param items Array[] with the possible commands a user can give.
+     * @param locationdId String which contains the current locationId.
+     * @param output Contains the String which should be printed to the terminal.
+     */
     public void invalid(String[] items, String locationdId, String output){
         System.out.println(output);
         if (!locationdId.equals("menu")) {

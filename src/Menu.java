@@ -7,6 +7,10 @@ public class Menu {
     public Menu(){
     }
 
+    /**
+     *
+     * @param command String which contains a value for the switch case to call the correct method.
+     */
     public void inputCommand (String command) {
         switch (command) {
             case "play":

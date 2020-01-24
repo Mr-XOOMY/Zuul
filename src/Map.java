@@ -5,6 +5,10 @@ public class Map {
 
     static Map map = new Map();
 
+    /**
+     *
+     * @param roomId String which contains a value for the switch case to call the correct method.
+     */
     public void map(String roomId){
         switch (roomId) {
             case "room1":
@@ -54,6 +58,10 @@ public class Map {
         Item.itemObject.inputItems(items, locationId);
     }
 
+    /**
+     *
+     * @param mapLocation String with the location of the map.txt file, which is being read by a BufferedReader and prints it contents line for line to the terminal.
+     */
     private void printMap (String mapLocation) {
         try {
             BufferedReader input = new BufferedReader(new FileReader(mapLocation));

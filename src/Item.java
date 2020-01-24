@@ -10,6 +10,10 @@ public class Item {
     public Item(){
     }
 
+    /**
+     *
+     * @param items Array[] with the possible commands a user can give.
+     */
     public void drawItems(String[] items) {
         System.out.println();
 
@@ -18,6 +22,11 @@ public class Item {
         }
     }
 
+    /**
+     *
+     * @param items Array[] with the possible commands a user can give.
+     * @param locationId String which contains the current locationId.
+     */
     public void inputItems(String[] items, String locationId) {
         long startTime = System.currentTimeMillis();
         setLocationId(locationId);
@@ -164,6 +173,10 @@ public class Item {
         }
     }
 
+    /**
+     *
+     * @param riddleId String which contains a value for the switch case to call the correct method.
+     */
     public void inputItems(String riddleId) {
 
         //noinspection InfiniteLoopStatement
@@ -240,6 +253,10 @@ public class Item {
         }
     }
 
+    /**
+     *
+     * @param locationId String which contains the current locationId.
+     */
     public void setLocationId (String locationId){
         if (previousLocationId == null) {
             previousLocationId = locationId;

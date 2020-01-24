@@ -5,7 +5,10 @@ public class Storyline {
 
     static Storyline storyLineObject = new Storyline();
 
-    // Draws ASCII artwork inside designated locations.
+    /**
+     *
+     * @param locationId String which contains a value for the switch case to call the correct method.
+     */
     public void drawStory(String locationId){
         switch(locationId){
             case "soundsettings":
@@ -139,6 +142,10 @@ public class Storyline {
         printStory(storyLocation);
     }
 
+    /**
+     *
+     * @param storyLocation String with the location of the story.txt file, which is being read by a BufferedReader and prints it contents line for line to the terminal.
+     */
     public void printStory(String storyLocation){
         try {
             BufferedReader input = new BufferedReader(new FileReader(storyLocation));

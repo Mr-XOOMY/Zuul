@@ -5,7 +5,10 @@ public class Art {
 
     static Art artObject = new Art();
 
-    // Draws ASCII artwork inside designated locations.
+    /**
+     *
+     * @param artName String which contains a value for the switch case to call the correct method.
+     */
     public void drawArt(String artName){
         switch(artName){
             case "menu":
@@ -96,6 +99,10 @@ public class Art {
         printArt(artLocation);
     }
 
+    /**
+     *
+     * @param artLocation String with the location of the art.txt file, which is being read by a BufferedReader and prints it contents line for line to the terminal.
+     */
     public void printArt(String artLocation){
         try {
             BufferedReader input = new BufferedReader(new FileReader(artLocation));
