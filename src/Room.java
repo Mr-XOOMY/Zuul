@@ -6,9 +6,10 @@ public class Room {
     boolean mapRead = false;
     boolean sword = false;
     boolean magicalring = false;
-    boolean firstrun1 = true;
-    boolean firstrun2 = true;
-    boolean firstrun3 = true;
+    boolean firstRunRoom4 = true;
+    boolean firstRun1Room6 = true;
+    boolean firstRun2Room6 = true;
+    boolean firstRunRoom6_1 = true;
     static Room game = new Room();
 
     public Room(){
@@ -55,16 +56,20 @@ public class Room {
         }
     }
 
-    public boolean getFirstRun1(){
-        return firstrun1;
+    public boolean getFirstRunRoom4(){
+        return firstRunRoom4;
     }
 
-    public boolean getFirstRun2(){
-        return firstrun2;
+    public boolean getFirstRun1Room6(){
+        return firstRun1Room6;
     }
 
-    public boolean getFirstRun3(){
-        return firstrun3;
+    public boolean getFirstRun2Room6(){
+        return firstRun2Room6;
+    }
+
+    public boolean getFirstRunRoom6_1(){
+        return firstRunRoom6_1;
     }
 
     public void room1(){
@@ -134,24 +139,36 @@ public class Room {
     }
 
     public void room4(){
+
+        if(getFirstRunRoom4()){
+            String[] items = {
+                    "Take Acorn",
+                    "Persuade Thorin",
+                    "Do Not Interact"
+            };
+            String locationId = "room4";
+            Art.artObject.drawLordElrond();
+            Storyline.storyLineObject.drawStory4();
+            if (!Music.musicObject.getDevice().isRunning()) {
+                Music.musicObject.theAdventureBegins2();
+                Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
+            }
+            game.inventory[0] = "sword";
+            Item.itemObject.drawItems(items);
+            Item.itemObject.inputItems(items, locationId);
+        }
         String[] items = {
-                "Take Acorn",
                 "Persuade Thorin",
                 "Do Not Interact"
         };
         String locationId = "room4";
-        Art.artObject.drawLordElrond();
-        Storyline.storyLineObject.drawStory4();
-        if (!Music.musicObject.getDevice().isRunning()) {
-            Music.musicObject.theAdventureBegins2();
-            Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
-        }
-        game.inventory[0] = "sword";
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
+
     }
 
     public void inputCommandRoom4(String command){
+        game.firstRunRoom4 = false;
         Room room5;
         switch(command){
             case "takeacorn":
@@ -161,7 +178,9 @@ public class Room {
                         "Persuade Thorin",
                         "Do Not Interact"
                 };
+                String locationId = "room4";
                 Item.itemObject.drawItems(items);
+                Item.itemObject.inputItems(items, locationId);
                 break;
             case "persuadethorin":
                 System.out.println("You have successfully persuaded Thorin to show the map to Lord Elrond, Lord of Rivendell, the only one who could translate the Moon runes on it.");
@@ -218,7 +237,7 @@ public class Room {
 
     public void room6(){
 
-        if(game.getFirstRun1()){
+        if(game.getFirstRun1Room6()){
             String[] items = {
                     "Inspect Shimmering",
                     "Inspect Sound"
@@ -227,7 +246,7 @@ public class Room {
             Art.artObject.drawSmeagol();
             Storyline.storyLineObject.drawStory6();
 
-            if(game.getFirstRun2()){
+            if(game.getFirstRun2Room6()){
                 Music.musicObject.getDevice().stop();
                 Music.musicObject.getDevice().close();
                 Music.musicObject.smeagol();
@@ -236,7 +255,7 @@ public class Room {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                game.firstrun2 = false;
+                game.firstRun2Room6 = false;
             }
 
             if (!Music.musicObject.getDevice().isRunning()) {
@@ -256,8 +275,8 @@ public class Room {
 
     }
     public void inputCommandRoom6_1 (String command){
-        game.firstrun1 = false;
-        if (game.getFirstRun3()){
+        game.firstRun1Room6 = false;
+        if (game.getFirstRunRoom6_1()){
             switch(command){
                 case "inspectshimmering":
                     if (inventory[1] != null) {
@@ -291,7 +310,7 @@ public class Room {
     }
 
     public void inputCommandRoom6_2(String command){
-        game.firstrun3 = false;
+        game.firstRunRoom6_1 = false;
         String[] items = {
                 "Inspect Sound"
         };
@@ -342,16 +361,4 @@ public class Room {
         }
 
     }
-
-    /*
-    public void inputCommandRoom7(String command){
-        switch(command){
-            case "continue":
-                Item.itemObject.roomId = null;
-                Menu.menu.menu();
-                break;
-        }
-    }
-
-     */
 }

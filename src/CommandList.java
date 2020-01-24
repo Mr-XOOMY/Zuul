@@ -19,8 +19,8 @@ public class CommandList {
         }
     }
 
-    public void invalid(String[] items, String locationdId){
-        System.out.println("You've typed an invalid command...");
+    public void invalid(String[] items, String locationdId, String output){
+        System.out.println(output);
         if (!locationdId.equals("menu")) {
             Item.itemObject.drawItems(items);
         }
