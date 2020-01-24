@@ -13,6 +13,6 @@ When these scripts do not start the game, you can always start a cli in this fol
 
 For best experience, please run the game fullscreen.
 
-The extra documentation for the game is in the documentation folder.
+The extra documentation for the game is in the Documentation folder.
 
 We hope you enjoy this game.
