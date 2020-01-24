@@ -6,7 +6,7 @@ Our subject is Bilbo's Quest which is our own version of the Hobbit.
 If you want the source code then you can clone this repository.
 
 If you want to run this game, you can download a .zip file from this link.
-https://drive.google.com/file/d/11MYbXOgER8IyxSGN-UBY_BeNeycDRe-7/view?usp=sharing
+https://drive.google.com/file/d/1TEZsDQcssyt0tJuK4YnA0_wz2IA83lYi/view?usp=sharing
 
 When you extract this .zip file the newly created folder will contain some folders, a .jar file and some scripts.
 Run the corresponding script, .bat and .ps1 for Windows and .sh for Linux, to start the game.
