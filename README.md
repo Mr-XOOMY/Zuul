@@ -11,4 +11,6 @@ When these scripts do not start the game, you can always start a cli in this fol
 
 "java -jar ./BilbosQuest"
 
+For best experience, please run the game fullscreen.
+
 We hope you enjoy this game.
