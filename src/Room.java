@@ -41,8 +41,6 @@ public class Room {
         }
     }
 
-    // Checks for items inside the inventory array.
-
     public void checkItems(){
 
         for(String item : inventory){
@@ -78,7 +76,6 @@ public class Room {
         };
         String locationId = "room1";
         Art.artObject.drawHobbitHole();
-        //Storyline.storyLineObject.drawStory1();
         Storyline.storyLineObject.drawStory(locationId);
         if (!Music.musicObject.getDevice().isRunning()) {
             Music.musicObject.theShire();
@@ -100,7 +97,6 @@ public class Room {
         };
         String locationId = "room2";
         Art.artObject.drawThorinOakenshield();
-        //Storyline.storyLineObject.drawStory2();
         Storyline.storyLineObject.drawStory(locationId);
         if (!Music.musicObject.getDevice().isRunning()) {
             Music.musicObject.theMistyMountainsCold();
@@ -122,7 +118,6 @@ public class Room {
         };
         String locationId = "room3";
         Art.artObject.drawContract();
-        //Storyline.storyLineObject.drawStory3();
         Storyline.storyLineObject.drawStory(locationId);
         if (!Music.musicObject.getDevice().isRunning()) {
             Music.musicObject.theAdventureBegins1();
@@ -152,7 +147,6 @@ public class Room {
             };
             String locationId = "room4";
             Art.artObject.drawLordElrond();
-            //Storyline.storyLineObject.drawStory4();
             Storyline.storyLineObject.drawStory(locationId);
             if (!Music.musicObject.getDevice().isRunning()) {
                 Music.musicObject.theAdventureBegins2();
@@ -220,7 +214,6 @@ public class Room {
         };
         String locationId = "room5";
         Art.artObject.drawCave();
-        //Storyline.storyLineObject.drawStory5();
         Storyline.storyLineObject.drawStory(locationId);
         if (!Music.musicObject.getDevice().isRunning()) {
             Music.musicObject.aThunderBattle();
@@ -250,7 +243,6 @@ public class Room {
             };
             String locationId = "room6_1";
             Art.artObject.drawSmeagol();
-            //Storyline.storyLineObject.drawStory6();
             Storyline.storyLineObject.drawStory(locationId);
 
             if(game.getFirstRun2Room6()){
@@ -341,9 +333,6 @@ public class Room {
     }
 
     public void room7(){
-        Music.musicObject.getDevice().stop();
-        Music.musicObject.getDevice().close();
-        //Storyline.storyLineObject.drawStory7();
         String locationId = "room7";
         Storyline.storyLineObject.drawStory(locationId);
         try {
@@ -351,6 +340,11 @@ public class Room {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        if(!game.mapRead){
+            GameEnding.ending.ending("elrond");
+        }
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
         Art.artObject.drawSmaug();
         Music.musicObject.smaug();
         try {
@@ -359,14 +353,12 @@ public class Room {
             e.printStackTrace();
         }
         game.checkItems();
-        if (game.mapRead && game.sword && game.magicalring) {
-            GameEnding.ending.ending("completed");
-        }else if (!game.mapRead) {
-            GameEnding.ending.ending("elrond");
-        } else if (!game.sword) {
+        if (!game.sword) {
             GameEnding.ending.ending("sword");
-        }else {
+        } else if (!game.magicalring) {
             GameEnding.ending.ending("ring");
+        }else {
+            GameEnding.ending.ending("completed");
         }
 
     }
