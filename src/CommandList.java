@@ -38,6 +38,15 @@ public class CommandList {
             case "room2":
                 Room.game.room2();
                 break;
+            case "room4":
+                Room.game.room4();
+                break;
+            case "room5":
+                Room.game.room5();
+                break;
+            case "room6_1":
+                Room.game.room6();
+                break;
         }
     }
 }

@@ -58,15 +58,20 @@ public class Item {
                         Quit.quitObject.inputCommand(inputCommand);
                         break;
                     case "room1":
+                        Music.musicObject.getDevice().stop();
+                        Music.musicObject.getDevice().close();
                         Room.game.inputCommandRoom1(inputCommand);
                         break;
                     case "room2":
+                        Music.musicObject.getDevice().stop();
+                        Music.musicObject.getDevice().close();
                         Room.game.inputCommandRoom2(inputCommand);
                         break;
                     case "room3":
+                        Music.musicObject.getDevice().stop();
+                        Music.musicObject.getDevice().close();
                         long endTime = System.currentTimeMillis();
                         if ((endTime - startTime) > 36000) {
-                            System.out.println(endTime);
                             GameEnding.ending.ending("countdown");
                         }else {
                             Room.game.inputCommandRoom3(inputCommand);
@@ -76,10 +81,12 @@ public class Item {
                         Room.game.inputCommandRoom4(inputCommand);
                         break;
                     case "room5":
+                        Music.musicObject.getDevice().stop();
+                        Music.musicObject.getDevice().close();
                         Room.game.inputCommandRoom5(inputCommand);
                         break;
                     case "room6_1":
-                        Room.game.inputCommandRoom6_1(inputCommand, Room.game.getFirstRun());
+                        Room.game.inputCommandRoom6_1(inputCommand);
                         break;
                     case "room6_2":
                         Room.game.inputCommandRoom6_2(inputCommand);
@@ -93,8 +100,17 @@ public class Item {
                         case "music":
                         case "about":
                         case "quit":
+                        case "room3":
+                        case "room6_2":
                             CommandList.commandListObject.invalid(items, locationId);
                             break;
+                        case "room1":
+                        case "room2":
+                        case "room4":
+                        case "room5":
+                        case "room6":
+                        case "room6_1":
+                            CommandList.commandListObject.inputCommand(inputCommand, roomId);
                         default:
                             Music.musicObject.getDevice().stop();
                             Music.musicObject.getDevice().close();
@@ -120,7 +136,7 @@ public class Item {
             switch (riddleId) {
                 case "riddle1":
                     if (inputCommand.equals("mountain")) {
-                        System.out.println("Your answer is correct!");
+                        System.out.println("Your answer is correct!"+System.lineSeparator());
                         try {
                             Thread.sleep(2000);
                         } catch (InterruptedException e) {
@@ -133,7 +149,7 @@ public class Item {
                     break;
                 case "riddle2":
                     if (inputCommand.equals("wind")) {
-                        System.out.println("Your answer is correct!");
+                        System.out.println("Your answer is correct!"+System.lineSeparator());
                         try {
                             Thread.sleep(2000);
                         } catch (InterruptedException e) {
@@ -145,7 +161,7 @@ public class Item {
                     break;
                 case "riddle3":
                     if (inputCommand.equals("time")) {
-                        System.out.println("Your answer is correct!");
+                        System.out.println("Your answer is correct!"+System.lineSeparator());
                         try {
                             Thread.sleep(2000);
                         } catch (InterruptedException e) {
@@ -175,6 +191,9 @@ public class Item {
             Item.itemObject.roomId = null;
             Room.game.inventory[0] = null;
             Room.game.inventory[1] = null;
+            Room.game.firstrun1 = true;
+            Room.game.firstrun2 = true;
+            Room.game.firstrun3 = true;
             Menu.menu.menu();
         }
     }
