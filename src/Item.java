@@ -58,15 +58,20 @@ public class Item {
                         Quit.quitObject.inputCommand(inputCommand);
                         break;
                     case "room1":
+                        Music.musicObject.getDevice().stop();
+                        Music.musicObject.getDevice().close();
                         Room.game.inputCommandRoom1(inputCommand);
                         break;
                     case "room2":
+                        Music.musicObject.getDevice().stop();
+                        Music.musicObject.getDevice().close();
                         Room.game.inputCommandRoom2(inputCommand);
                         break;
                     case "room3":
+                        Music.musicObject.getDevice().stop();
+                        Music.musicObject.getDevice().close();
                         long endTime = System.currentTimeMillis();
                         if ((endTime - startTime) > 36000) {
-                            System.out.println(endTime);
                             GameEnding.ending.ending("countdown");
                         }else {
                             Room.game.inputCommandRoom3(inputCommand);
@@ -76,32 +81,84 @@ public class Item {
                         Room.game.inputCommandRoom4(inputCommand);
                         break;
                     case "room5":
+                        Music.musicObject.getDevice().stop();
+                        Music.musicObject.getDevice().close();
                         Room.game.inputCommandRoom5(inputCommand);
                         break;
                     case "room6_1":
-                        Room.game.inputCommandRoom6_1(inputCommand, Room.game.getFirstRun());
+                        Room.game.inputCommandRoom6_1(inputCommand);
                         break;
                     case "room6_2":
                         Room.game.inputCommandRoom6_2(inputCommand);
                         break;
                 }
             } else {
-                if (inputCommand.equals("menu") || inputCommand.equals("map")) {
-                    switch (currentLocationId) {
-                        case "menu":
-                        case "soundsettings":
-                        case "music":
-                        case "about":
-                        case "quit":
-                            CommandList.commandListObject.invalid(items, locationId);
-                            break;
-                        default:
-                            Music.musicObject.getDevice().stop();
-                            Music.musicObject.getDevice().close();
-                            CommandList.commandListObject.inputCommand(inputCommand, roomId);
-                    }
-                }else {
-                    CommandList.commandListObject.invalid(items, locationId);
+                switch (inputCommand) {
+                    case "menu":
+                        switch (currentLocationId) {
+                            case "menu":
+                            case "soundsettings":
+                            case "music":
+                            case "about":
+                            case "quit":
+                            case "room3":
+                            case "room6_2":
+                                CommandList.commandListObject.invalid(items, locationId, "You've typed an invalid command...");
+                                break;
+                            case "room1":
+                            case "room2":
+                            case "room4":
+                            case "room5":
+                            case "room6":
+                            case "room6_1":
+                                Music.musicObject.getDevice().stop();
+                                Music.musicObject.getDevice().close();
+                                CommandList.commandListObject.inputCommand(inputCommand, roomId);
+                            default:
+                                Music.musicObject.getDevice().stop();
+                                Music.musicObject.getDevice().close();
+                                CommandList.commandListObject.inputCommand(inputCommand, roomId);
+                        }
+                        break;
+                    case "map":
+                        switch (currentLocationId) {
+                            case "menu":
+                            case "soundsettings":
+                            case "music":
+                            case "about":
+                            case "quit":
+                            case "room3":
+                            case "room6_2":
+                                CommandList.commandListObject.invalid(items, locationId, "You've typed an invalid command...");
+                                break;
+                            case "room1":
+                            case "room2":
+                            case "room4":
+                            case "room5":
+                            case "room6":
+                            case "room6_1":
+                                CommandList.commandListObject.inputCommand(inputCommand, roomId);
+                            default:
+                                Music.musicObject.getDevice().stop();
+                                Music.musicObject.getDevice().close();
+                                CommandList.commandListObject.inputCommand(inputCommand, roomId);
+                        }
+                        break;
+                    case "back":
+                        switch (currentLocationId) {
+                            case "room4":
+                            case "room5":
+                            case "room6":
+                            case "room6_1":
+                                CommandList.commandListObject.invalid(items, locationId, "You can't go back now coward! You've already signed the contract!");
+                                break;
+                            default:
+                                CommandList.commandListObject.invalid(items, locationId, "You've typed an invalid command...");
+                        }
+                        break;
+                    default:
+                        CommandList.commandListObject.invalid(items, locationId, "You've typed an invalid command...");
+                        break;
                 }
             }
         }
@@ -120,7 +177,7 @@ public class Item {
             switch (riddleId) {
                 case "riddle1":
                     if (inputCommand.equals("mountain")) {
-                        System.out.println("Your answer is correct!");
+                        System.out.println("Your answer is correct!"+System.lineSeparator());
                         try {
                             Thread.sleep(2000);
                         } catch (InterruptedException e) {
@@ -133,7 +190,7 @@ public class Item {
                     break;
                 case "riddle2":
                     if (inputCommand.equals("wind")) {
-                        System.out.println("Your answer is correct!");
+                        System.out.println("Your answer is correct!"+System.lineSeparator());
                         try {
                             Thread.sleep(2000);
                         } catch (InterruptedException e) {
@@ -145,7 +202,7 @@ public class Item {
                     break;
                 case "riddle3":
                     if (inputCommand.equals("time")) {
-                        System.out.println("Your answer is correct!");
+                        System.out.println("Your answer is correct!"+System.lineSeparator());
                         try {
                             Thread.sleep(2000);
                         } catch (InterruptedException e) {
@@ -175,6 +232,10 @@ public class Item {
             Item.itemObject.roomId = null;
             Room.game.inventory[0] = null;
             Room.game.inventory[1] = null;
+            Room.game.firstRunRoom4 = true;
+            Room.game.firstRun1Room6 = true;
+            Room.game.firstRun2Room6 = true;
+            Room.game.firstRunRoom6_1 = true;
             Menu.menu.menu();
         }
     }
@@ -194,7 +255,6 @@ public class Item {
             case "room4":
             case "room5":
             case "room6":
-            case "room7":
                 roomId = locationId;
                 break;
         }

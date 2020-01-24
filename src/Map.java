@@ -8,16 +8,21 @@ public class Map {
     public void map(String roomId){
         switch (roomId) {
             case "room1":
-                drawRoom1();
-                break;
             case "room2":
-                drawRoom2();
+                drawMap1();
+                break;
+            case "room4":
+                drawMap2();
+                break;
+            case "room5":
+            case "room6_1":
+                drawMap3();
                 break;
         }
     }
 
-    private void drawRoom1(){
-        String mapLocation = "Map/room1.txt";
+    private void drawMap1(){
+        String mapLocation = "Map/map1.txt";
         printMap(mapLocation);
         String[] items = {
                 "Back"
@@ -27,8 +32,19 @@ public class Map {
         Item.itemObject.inputItems(items, locationId);
     }
 
-    private void drawRoom2(){
-        String mapLocation = "Map/room2.txt";
+    private void drawMap2(){
+        String mapLocation = "Map/map2.txt";
+        printMap(mapLocation);
+        String[] items = {
+                "Back"
+        };
+        String locationId = "map";
+        Item.itemObject.drawItems(items);
+        Item.itemObject.inputItems(items, locationId);
+    }
+
+    private void drawMap3(){
+        String mapLocation = "Map/map3.txt";
         printMap(mapLocation);
         String[] items = {
                 "Back"

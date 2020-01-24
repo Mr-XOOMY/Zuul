@@ -6,7 +6,10 @@ public class Room {
     boolean mapRead = false;
     boolean sword = false;
     boolean magicalring = false;
-    boolean firstrun = true;
+    boolean firstRunRoom4 = true;
+    boolean firstRun1Room6 = true;
+    boolean firstRun2Room6 = true;
+    boolean firstRunRoom6_1 = true;
     static Room game = new Room();
 
     public Room(){
@@ -53,8 +56,20 @@ public class Room {
         }
     }
 
-    public boolean getFirstRun(){
-        return firstrun;
+    public boolean getFirstRunRoom4(){
+        return firstRunRoom4;
+    }
+
+    public boolean getFirstRun1Room6(){
+        return firstRun1Room6;
+    }
+
+    public boolean getFirstRun2Room6(){
+        return firstRun2Room6;
+    }
+
+    public boolean getFirstRunRoom6_1(){
+        return firstRunRoom6_1;
     }
 
     public void room1(){
@@ -64,10 +79,10 @@ public class Room {
         String locationId = "room1";
         Art.artObject.drawHobbitHole();
         Storyline.storyLineObject.drawStory1();
-        Music.musicObject.getDevice().stop();
-        Music.musicObject.getDevice().close();
-        Music.musicObject.theShire();
-        Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
+        if (!Music.musicObject.getDevice().isRunning()) {
+            Music.musicObject.theShire();
+            Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
+        }
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -85,10 +100,10 @@ public class Room {
         String locationId = "room2";
         Art.artObject.drawThorinOakenshield();
         Storyline.storyLineObject.drawStory2();
-        Music.musicObject.getDevice().stop();
-        Music.musicObject.getDevice().close();
-        Music.musicObject.theMistyMountainsCold();
-        Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
+        if (!Music.musicObject.getDevice().isRunning()) {
+            Music.musicObject.theMistyMountainsCold();
+            Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
+        }
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -106,9 +121,10 @@ public class Room {
         String locationId = "room3";
         Art.artObject.drawContract();
         Storyline.storyLineObject.drawStory3();
-        Music.musicObject.getDevice().stop();
-        Music.musicObject.getDevice().close();
-        Music.musicObject.theAdventureBegins1();
+        if (!Music.musicObject.getDevice().isRunning()) {
+            Music.musicObject.theAdventureBegins1();
+            Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
+        }
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -123,24 +139,36 @@ public class Room {
     }
 
     public void room4(){
+
+        if(getFirstRunRoom4()){
+            String[] items = {
+                    "Take Acorn",
+                    "Persuade Thorin",
+                    "Do Not Interact"
+            };
+            String locationId = "room4";
+            Art.artObject.drawLordElrond();
+            Storyline.storyLineObject.drawStory4();
+            if (!Music.musicObject.getDevice().isRunning()) {
+                Music.musicObject.theAdventureBegins2();
+                Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
+            }
+            game.inventory[0] = "sword";
+            Item.itemObject.drawItems(items);
+            Item.itemObject.inputItems(items, locationId);
+        }
         String[] items = {
-                "Take Acorn",
                 "Persuade Thorin",
                 "Do Not Interact"
         };
         String locationId = "room4";
-        Art.artObject.drawLordElrond();
-        Storyline.storyLineObject.drawStory4();
-        Music.musicObject.getDevice().stop();
-        Music.musicObject.getDevice().close();
-        Music.musicObject.theAdventureBegins2();
-        Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
-        game.inventory[0] = "sword";
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
+
     }
 
     public void inputCommandRoom4(String command){
+        game.firstRunRoom4 = false;
         Room room5;
         switch(command){
             case "takeacorn":
@@ -150,7 +178,9 @@ public class Room {
                         "Persuade Thorin",
                         "Do Not Interact"
                 };
+                String locationId = "room4";
                 Item.itemObject.drawItems(items);
+                Item.itemObject.inputItems(items, locationId);
                 break;
             case "persuadethorin":
                 System.out.println("You have successfully persuaded Thorin to show the map to Lord Elrond, Lord of Rivendell, the only one who could translate the Moon runes on it.");
@@ -160,6 +190,8 @@ public class Room {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                Music.musicObject.getDevice().stop();
+                Music.musicObject.getDevice().close();
                 room5 = new Room("room5");
                 break;
             case "donotinteract":
@@ -169,6 +201,8 @@ public class Room {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                Music.musicObject.getDevice().stop();
+                Music.musicObject.getDevice().close();
                 room5 = new Room("room5");
                 break;
         }
@@ -182,10 +216,10 @@ public class Room {
         String locationId = "room5";
         Art.artObject.drawCave();
         Storyline.storyLineObject.drawStory5();
-        Music.musicObject.getDevice().stop();
-        Music.musicObject.getDevice().close();
-        Music.musicObject.aThunderBattle();
-        Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
+        if (!Music.musicObject.getDevice().isRunning()) {
+            Music.musicObject.aThunderBattle();
+            Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
+        }
         Item.itemObject.drawItems(items);
         Item.itemObject.inputItems(items, locationId);
     }
@@ -202,30 +236,47 @@ public class Room {
     }
 
     public void room6(){
-        String[] items = {
-                "Inspect Shimmering",
-                "Inspect Sound"
-        };
-        String locationId = "room6_1";
-        Art.artObject.drawSmeagol();
-        Storyline.storyLineObject.drawStory6();
-        Music.musicObject.getDevice().stop();
-        Music.musicObject.getDevice().close();
-        Music.musicObject.smeagol();
-        try {
-            Thread.sleep(3100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Music.musicObject.getDevice().stop();
-        Music.musicObject.getDevice().close();
-        Music.musicObject.riddlesInTheDark();
-        Item.itemObject.drawItems(items);
-        Item.itemObject.inputItems(items, locationId);
-    }
-    public void inputCommandRoom6_1 (String command, boolean firstrun){
 
-        if (firstrun){
+        if(game.getFirstRun1Room6()){
+            String[] items = {
+                    "Inspect Shimmering",
+                    "Inspect Sound"
+            };
+            String locationId = "room6_1";
+            Art.artObject.drawSmeagol();
+            Storyline.storyLineObject.drawStory6();
+
+            if(game.getFirstRun2Room6()){
+                Music.musicObject.getDevice().stop();
+                Music.musicObject.getDevice().close();
+                Music.musicObject.smeagol();
+                try {
+                    Thread.sleep(3100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                game.firstRun2Room6 = false;
+            }
+
+            if (!Music.musicObject.getDevice().isRunning()) {
+                Music.musicObject.riddlesInTheDark();
+                Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
+            }
+            Item.itemObject.drawItems(items);
+            Item.itemObject.inputItems(items, locationId);
+        } else {
+            String[] items = {
+                    "Inspect Sound"
+            };
+            String locationId = "room6_1";
+            Item.itemObject.drawItems(items);
+            Item.itemObject.inputItems(items, locationId);
+        }
+
+    }
+    public void inputCommandRoom6_1 (String command){
+        game.firstRun1Room6 = false;
+        if (game.getFirstRunRoom6_1()){
             switch(command){
                 case "inspectshimmering":
                     if (inventory[1] != null) {
@@ -259,7 +310,7 @@ public class Room {
     }
 
     public void inputCommandRoom6_2(String command){
-        firstrun = false;
+        game.firstRunRoom6_1 = false;
         String[] items = {
                 "Inspect Sound"
         };
@@ -310,16 +361,4 @@ public class Room {
         }
 
     }
-
-    /*
-    public void inputCommandRoom7(String command){
-        switch(command){
-            case "continue":
-                Item.itemObject.roomId = null;
-                Menu.menu.menu();
-                break;
-        }
-    }
-
-     */
 }

@@ -29,6 +29,8 @@ public class Menu {
 
     public void play () {
 
+        Music.musicObject.getDevice().stop();
+        Music.musicObject.getDevice().close();
         if (Item.itemObject.roomId == null){
             Room room1 = new Room("room1");
         }else {
