@@ -13,6 +13,6 @@ When these scripts do not start the game, you can always start a cli in this fol
 
 For best experience, please run the game fullscreen.
 
-The extra documentation for the game is in the Documentation folder.
+The extra documentation for the game is in the Documentation folder and the javadocs in the javadoc folder. If you open allclasses.html with a web browser, you will be able to click through the javadoc documentation.
 
 We hope you enjoy this game.
