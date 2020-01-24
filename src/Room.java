@@ -78,7 +78,8 @@ public class Room {
         };
         String locationId = "room1";
         Art.artObject.drawHobbitHole();
-        Storyline.storyLineObject.drawStory1();
+        //Storyline.storyLineObject.drawStory1();
+        Storyline.storyLineObject.drawStory(locationId);
         if (!Music.musicObject.getDevice().isRunning()) {
             Music.musicObject.theShire();
             Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
@@ -99,7 +100,8 @@ public class Room {
         };
         String locationId = "room2";
         Art.artObject.drawThorinOakenshield();
-        Storyline.storyLineObject.drawStory2();
+        //Storyline.storyLineObject.drawStory2();
+        Storyline.storyLineObject.drawStory(locationId);
         if (!Music.musicObject.getDevice().isRunning()) {
             Music.musicObject.theMistyMountainsCold();
             Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
@@ -120,7 +122,8 @@ public class Room {
         };
         String locationId = "room3";
         Art.artObject.drawContract();
-        Storyline.storyLineObject.drawStory3();
+        //Storyline.storyLineObject.drawStory3();
+        Storyline.storyLineObject.drawStory(locationId);
         if (!Music.musicObject.getDevice().isRunning()) {
             Music.musicObject.theAdventureBegins1();
             Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
@@ -131,6 +134,7 @@ public class Room {
     public void inputCommandRoom3(String command) {
         switch(command) {
             case "yes":
+
                 Room room4 = new Room("room4");
                 break;
             case "no":
@@ -148,7 +152,8 @@ public class Room {
             };
             String locationId = "room4";
             Art.artObject.drawLordElrond();
-            Storyline.storyLineObject.drawStory4();
+            //Storyline.storyLineObject.drawStory4();
+            Storyline.storyLineObject.drawStory(locationId);
             if (!Music.musicObject.getDevice().isRunning()) {
                 Music.musicObject.theAdventureBegins2();
                 Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
@@ -215,7 +220,8 @@ public class Room {
         };
         String locationId = "room5";
         Art.artObject.drawCave();
-        Storyline.storyLineObject.drawStory5();
+        //Storyline.storyLineObject.drawStory5();
+        Storyline.storyLineObject.drawStory(locationId);
         if (!Music.musicObject.getDevice().isRunning()) {
             Music.musicObject.aThunderBattle();
             Music.musicObject.getDevice().loop(Clip.LOOP_CONTINUOUSLY);
@@ -244,7 +250,8 @@ public class Room {
             };
             String locationId = "room6_1";
             Art.artObject.drawSmeagol();
-            Storyline.storyLineObject.drawStory6();
+            //Storyline.storyLineObject.drawStory6();
+            Storyline.storyLineObject.drawStory(locationId);
 
             if(game.getFirstRun2Room6()){
                 Music.musicObject.getDevice().stop();
@@ -336,7 +343,9 @@ public class Room {
     public void room7(){
         Music.musicObject.getDevice().stop();
         Music.musicObject.getDevice().close();
-        Storyline.storyLineObject.drawStory7();
+        //Storyline.storyLineObject.drawStory7();
+        String locationId = "room7";
+        Storyline.storyLineObject.drawStory(locationId);
         try {
             Thread.sleep(6000);
         } catch (InterruptedException e) {

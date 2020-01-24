@@ -6,8 +6,8 @@ public class Storyline {
     static Storyline storyLineObject = new Storyline();
 
     // Draws ASCII artwork inside designated locations.
-    public void drawStory(String storyName){
-        switch(storyName){
+    public void drawStory(String locationId){
+        switch(locationId){
             case "soundsettings":
                 drawSoundSettings();
                 break;
@@ -20,20 +20,26 @@ public class Storyline {
             case "quit":
                 drawQuit();
                 break;
-            case "story1":
+            case "room1":
                 drawStory1();
                 break;
-            case "story2":
+            case "room2":
                 drawStory2();
                 break;
-            case "story3":
+            case "room3":
                 drawStory3();
                 break;
-            case "story4":
+            case "room4":
                 drawStory4();
                 break;
-            case "story5":
+            case "room5":
                 drawStory5();
+                break;
+            case "room6_1":
+                drawStory6();
+                break;
+            case "room7":
+                drawStory7();
                 break;
         }
     }
