@@ -9,7 +9,7 @@ Run the corresponding script, .bat and .ps1 for Windows and .sh for Linux, to st
 
 When these scripts do not start the game, you can always start a cli in this folder location and run the game with te following command:
 
-"java -jar ./BilbosQuest"
+"java -jar ./BilbosQuest.jar"
 
 For best experience, please run the game fullscreen.
 
